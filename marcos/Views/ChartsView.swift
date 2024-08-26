@@ -11,7 +11,7 @@ import Charts
 struct ChartsView: View {
     
     @State var vetor: [GraficoTeste] = [
-        GraficoTeste(algo: "coisa1" , porcentagem: 10),
+        GraficoTeste(algo: "Jan" , porcentagem: 10),
         GraficoTeste(algo: "coisa2" , porcentagem: 13),
         GraficoTeste(algo: "coisa3" , porcentagem: 16),
         GraficoTeste(algo: "coisa4" , porcentagem: 18),
@@ -22,7 +22,7 @@ struct ChartsView: View {
         GraficoTeste(algo: "coisa9" , porcentagem: 5),
         GraficoTeste(algo: "coisa10" , porcentagem: 5),
         GraficoTeste(algo: "coisa11" , porcentagem: 5),
-        GraficoTeste(algo: "coisa12" , porcentagem: 25)
+        GraficoTeste(algo: "coisa12" , porcentagem: 15)
         
     ];
     
@@ -30,32 +30,45 @@ struct ChartsView: View {
         GeometryReader {
             geometry in
             VStack {
-                ScrollView(.horizontal) {
-                    HStack {
-                        Chart {
-                            ForEach (vetor) {
-                                dado in
-                                BarMark(x: .value("coisa1", dado.algo),
-                                        y: .value("coisa2", dado.porcentagem))
-                                .annotation {
-                                    Text(String(Int(dado.porcentagem))).font(.caption2)
-                                }
-                            }
+                //  ScrollView(.horizontal) {
+                HStack {
+                    Chart {
+                        ForEach (vetor) {
+                            dado in
+                            BarMark(x: .value("coisa1", dado.algo),
+                                    y: .value("coisa2", dado.porcentagem))
+                            .foregroundStyle(dado.porcentagem == 5 ? .blue : .red)
+                            .annotation(position: .top, alignment: .center, spacing: CGFloat(5), content: {
+                                Text(String(Int(dado.porcentagem))).font(.caption2)
+                            })
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
                             
                             
                         }
-                        .padding(.vertical)
-                        .foregroundColor(.pink)
                         
-                    }.frame(width: geometry.size.width * 2, height: 300)
+                        
+                    }
+                    .chartLegend(position: .bottom, alignment: .top, spacing: 16)
+                    .chartScrollableAxes(.horizontal)
+                    .chartXVisibleDomain(length: 5)
+                    .padding(.vertical)
+                    .frame(height: 300)
+                    //                        .chartXAxis {
+                    //                            AxisMarks(values: .stride(by: .day, count: 1)) {
+                    //                                AxisTick()
+                    //                                AxisValueLabel(format: .dateTime.month().day())
+                    //                                    .foregroundStyle(Color.blue)
+                    //                            }
+                    //                    }
+                    
+                    //  }
+                    
                     
                 }
-                
-                
             }
         }
+        
     }
-    
 }
     
     struct GraficoTeste: Identifiable {
