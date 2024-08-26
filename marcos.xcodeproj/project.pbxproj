@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		796ED1E12C7CFD690059EBA4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ED1E02C7CFD690059EBA4 /* HomeView.swift */; };
+		796ED1E32C7CFD750059EBA4 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ED1E22C7CFD750059EBA4 /* ChartsView.swift */; };
+		796ED1E52C7CFD810059EBA4 /* CountriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ED1E42C7CFD810059EBA4 /* CountriesView.swift */; };
 		7F1490902C7CFA6200E4BD63 /* marcosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14908F2C7CFA6200E4BD63 /* marcosApp.swift */; };
 		7F1490922C7CFA6200E4BD63 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1490912C7CFA6200E4BD63 /* ContentView.swift */; };
 		7F1490942C7CFA6300E4BD63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F1490932C7CFA6300E4BD63 /* Assets.xcassets */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		796ED1E02C7CFD690059EBA4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		796ED1E22C7CFD750059EBA4 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
+		796ED1E42C7CFD810059EBA4 /* CountriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesView.swift; sourceTree = "<group>"; };
 		7F14908C2C7CFA6200E4BD63 /* marcos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marcos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F14908F2C7CFA6200E4BD63 /* marcosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = marcosApp.swift; sourceTree = "<group>"; };
 		7F1490912C7CFA6200E4BD63 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,6 +78,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		796ED1DF2C7CFD560059EBA4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				796ED1E02C7CFD690059EBA4 /* HomeView.swift */,
+				796ED1E22C7CFD750059EBA4 /* ChartsView.swift */,
+				796ED1E42C7CFD810059EBA4 /* CountriesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7F1490832C7CFA6200E4BD63 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +111,7 @@
 		7F14908E2C7CFA6200E4BD63 /* marcos */ = {
 			isa = PBXGroup;
 			children = (
+				796ED1DF2C7CFD560059EBA4 /* Views */,
 				7F14908F2C7CFA6200E4BD63 /* marcosApp.swift */,
 				7F1490912C7CFA6200E4BD63 /* ContentView.swift */,
 				7F1490932C7CFA6300E4BD63 /* Assets.xcassets */,
@@ -259,8 +276,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				796ED1E12C7CFD690059EBA4 /* HomeView.swift in Sources */,
 				7F1490922C7CFA6200E4BD63 /* ContentView.swift in Sources */,
 				7F1490902C7CFA6200E4BD63 /* marcosApp.swift in Sources */,
+				796ED1E32C7CFD750059EBA4 /* ChartsView.swift in Sources */,
+				796ED1E52C7CFD810059EBA4 /* CountriesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
