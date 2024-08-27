@@ -25,6 +25,7 @@ class HolidaysDAO: ObservableObject {
         HolidayChart("Nov"),
         HolidayChart("Dec")
     ];
+    @Published var countries: [Country] = [];
     
     init() {
         
@@ -33,7 +34,7 @@ class HolidaysDAO: ObservableObject {
             return;
         }
         
-        let task = URLSession.shared.dataTask(with: url) {
+        let taskGetHolidays = URLSession.shared.dataTask(with: url) {
             data, _, error in
             guard let data = data, error == nil else {
                 print("DADO INVALIDA")
@@ -53,7 +54,31 @@ class HolidaysDAO: ObservableObject {
                 print(error)
             }
         }
-        task.resume()
+        taskGetHolidays.resume()
+        
+        guard let url = URL(string: "https://calendarific.com/api/v2/countries?&api_key=x6aXStVO9yKBYS1GWdOip4NUVWVtyhBE") else {
+            print("url invalida");
+            return;
+        }
+        
+        let taskGetCountries = URLSession.shared.dataTask(with: url) {
+            data, _, error in
+            guard let data = data, error == nil else {
+                print("DADO INVALIDA")
+                return;
+            }
+            
+            do {
+                let resposta1 = try JSONDecoder().decode(RespostaCountries.self, from: data)
+                DispatchQueue.main.async {
+                    self.countries = resposta1.response.countries
+
+                }
+            } catch {
+                print(error)
+            }
+        }
+        taskGetCountries.resume()
         
 
         
@@ -61,10 +86,10 @@ class HolidaysDAO: ObservableObject {
 }
 
 struct Resposta: Codable, Hashable {
-    let response: Response;
+    let response: ResponseHoliday;
 }
 
-struct Response: Codable, Hashable {
+struct ResponseHoliday: Codable, Hashable {
     let holidays: [Holiday]
 }
 
@@ -98,6 +123,30 @@ struct HolidayChart: Identifiable {
         self.numeroDeFeriados = 0;
     }
 }
+
+
+
+struct RespostaCountries: Codable, Hashable {
+    let response: ResponseCountry;
+}
+
+struct ResponseCountry: Codable, Hashable {
+    let countries: [Country]
+}
+
+struct Country: Codable, Hashable {
+    let country_name: String;
+  //  let iso-3166:
+    let flag_unicode: String;
+    let total_holidays: Int;
+    
+}
+
+
+
+
+
+
 
 
 

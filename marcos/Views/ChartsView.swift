@@ -29,9 +29,16 @@ struct ChartsView: View {
                 
                 List {
                     
-                    ForEach(holidaysDAO.holidays, id: \.self) {
-                        holiday in
-                        Text(holiday.name)
+                    ForEach(holidaysDAO.countries, id: \.self) {
+                        a in
+                        
+                        VStack {
+                            
+                            Text(String(a.flag_unicode))
+                                .font(.system(size: 100))
+                            Text(String(a.country_name))
+                            
+                        }
                     }
                     
                 }
