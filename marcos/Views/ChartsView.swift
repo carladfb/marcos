@@ -10,36 +10,52 @@ import Charts
 
 struct ChartsView: View {
     
-    @State var vetor: [GraficoTeste] = [
-        GraficoTeste(algo: "Jan" , porcentagem: 5),
-        GraficoTeste(algo: "coisa2" , porcentagem: 13),
-        GraficoTeste(algo: "coisa3" , porcentagem: 16),
-        GraficoTeste(algo: "coisa4" , porcentagem: 18),
-        GraficoTeste(algo: "coisa5" , porcentagem: 5),
-        GraficoTeste(algo: "coisa6" , porcentagem: 5),
-        GraficoTeste(algo: "coisa7" , porcentagem: 1),
-        GraficoTeste(algo: "coisa8" , porcentagem: 5),
-        GraficoTeste(algo: "coisa9" , porcentagem: 5),
-        GraficoTeste(algo: "coisa10" , porcentagem: 5),
-        GraficoTeste(algo: "coisa11" , porcentagem: 5),
-        GraficoTeste(algo: "coisa12" , porcentagem: 15)
+    @ObservedObject var holidaysDAO = HolidaysDAO()
+    let dateFormatter: DateFormatter;
+                   
+    init() {
         
-    ];
+        self.dateFormatter = DateFormatter()
+        self.dateFormatter.dateFormat = "MMMM"
+        print(dateFormatter.string(from: Foundation.Date()))
+    }
+
+
     
     var body: some View {
         GeometryReader {
             geometry in
             VStack {
+                
+                List {
+                    
+                    ForEach(holidaysDAO.holidays, id: \.self) {
+                        holiday in
+                        Text(holiday.name)
+                    }
+                    
+                }
+                
+
+                
                 //  ScrollView(.horizontal) {
                 HStack {
                     Chart {
-                        ForEach (vetor) {
+                        ForEach (holidaysDAO.holidaysPerMonth) {
                             dado in
-                            BarMark(x: .value("", dado.algo),
-                                    y: .value("", dado.porcentagem))
-                            .foregroundStyle(dado.porcentagem < 6 ? .blue : .red)
+                            BarMark(x: .value("", dado.monthName),
+                                    y: .value("", dado.numeroDeFeriados))
+//                            .foregroundStyle(
+//                                Color.cinzinha)
+                            .foregroundStyle(
+                                dateFormatter.string(from: Foundation.Date()).prefix(3) == dado.monthName ?
+                                Color.vermei :
+                                Color.rosinhaGrafico)
                             .annotation(position: .top, alignment: .center, spacing: CGFloat(5), content: {
-                                Text(String(Int(dado.porcentagem))).font(.caption2)
+                                Text(String(Int(dado.numeroDeFeriados))).font(.caption2)
+                                    .foregroundColor(dateFormatter.string(from: Foundation.Date()).prefix(3) == dado.monthName ?
+                                Color.vermei :
+                                Color.black)
                             })
                             .clipShape(RoundedRectangle(cornerRadius: 16))
                             
@@ -48,11 +64,10 @@ struct ChartsView: View {
                         
                         
                     }
-                    
-                    
                     .chartLegend(position: .bottom, alignment: .top, spacing: 16)
                     .chartScrollableAxes(.horizontal)
-                    .chartXVisibleDomain(length: 5)
+                    .chartXVisibleDomain(length: 6)
+                    
                     .padding(.vertical)
                     .frame(height: 300)
                   
@@ -61,17 +76,15 @@ struct ChartsView: View {
                     
                     
                 }
-            }
+            }.padding()
         }
         
     }
 }
 
-struct GraficoTeste: Identifiable {
-    let id = UUID();
-    let algo: String;
-    let porcentagem: Double;
-}
+
+
+
 
 #Preview {
     ChartsView()
