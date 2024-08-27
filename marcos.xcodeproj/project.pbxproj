@@ -11,6 +11,7 @@
 		796ED1E12C7CFD690059EBA4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ED1E02C7CFD690059EBA4 /* HomeView.swift */; };
 		796ED1E32C7CFD750059EBA4 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ED1E22C7CFD750059EBA4 /* ChartsView.swift */; };
 		796ED1E52C7CFD810059EBA4 /* CountriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ED1E42C7CFD810059EBA4 /* CountriesView.swift */; };
+		7A36A9122C7E4AAC0059D714 /* APIbandeiras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36A9112C7E4AAC0059D714 /* APIbandeiras.swift */; };
 		7F1490902C7CFA6200E4BD63 /* marcosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14908F2C7CFA6200E4BD63 /* marcosApp.swift */; };
 		7F1490922C7CFA6200E4BD63 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1490912C7CFA6200E4BD63 /* ContentView.swift */; };
 		7F1490942C7CFA6300E4BD63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F1490932C7CFA6300E4BD63 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		796ED1E02C7CFD690059EBA4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		796ED1E22C7CFD750059EBA4 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
 		796ED1E42C7CFD810059EBA4 /* CountriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesView.swift; sourceTree = "<group>"; };
+		7A36A9112C7E4AAC0059D714 /* APIbandeiras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIbandeiras.swift; sourceTree = "<group>"; };
 		7F14908C2C7CFA6200E4BD63 /* marcos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marcos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F14908F2C7CFA6200E4BD63 /* marcosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = marcosApp.swift; sourceTree = "<group>"; };
 		7F1490912C7CFA6200E4BD63 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				796ED1DF2C7CFD560059EBA4 /* Views */,
+				7A36A9112C7E4AAC0059D714 /* APIbandeiras.swift */,
 				7F14908F2C7CFA6200E4BD63 /* marcosApp.swift */,
 				7F1490912C7CFA6200E4BD63 /* ContentView.swift */,
 				7F1490932C7CFA6300E4BD63 /* Assets.xcassets */,
@@ -283,6 +286,7 @@
 				7F1490922C7CFA6200E4BD63 /* ContentView.swift in Sources */,
 				7F1490902C7CFA6200E4BD63 /* marcosApp.swift in Sources */,
 				796ED1E32C7CFD750059EBA4 /* ChartsView.swift in Sources */,
+				7A36A9122C7E4AAC0059D714 /* APIbandeiras.swift in Sources */,
 				796ED1E52C7CFD810059EBA4 /* CountriesView.swift in Sources */,
 				791DE4922C7E47E0000D8BB9 /* HolidaysDAO.swift in Sources */,
 			);
