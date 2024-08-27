@@ -9,7 +9,15 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        Text("Inicio")
+        ZStack{
+            Color.fundinho.ignoresSafeArea()
+            VStack{
+                TodayDateView()
+                InThisDayView()
+            }
+            
+        }
+
     }
 }
 
