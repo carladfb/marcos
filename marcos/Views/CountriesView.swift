@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CountriesView: View {
     
+    @ObservedObject var holidaysDAO = HolidaysDAO()
+    
     @State var countryName:String = ""
     let columns = Array (repeating: GridItem(.flexible()), count: 3)
     var body: some View {
@@ -31,12 +33,16 @@ struct CountriesView: View {
             NavigationStack{
                 ScrollView{
                     LazyVGrid(columns: columns){
-                        ForEach(1...272, id: \.self) { count in
+                        ForEach(holidaysDAO.countries, id: \.self) { count in
                             Button(action: {
                                 print(count)
                             }, label: {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .frame(width: 100, height: 100)
+                                VStack (spacing: -20){
+                                    Text(String(count.flag_unicode))
+                                        .font(.system(size: 100))
+                                    Text(String(count.country_name))
+                                        .foregroundColor(/*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/)
+                                }
                             })
                             //                            Button("button") {
                             //                                print(count)
