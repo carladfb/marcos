@@ -16,7 +16,9 @@ struct CountriesView: View {
     var body: some View {
         VStack {
             HStack {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {
+                    
+                }, label: {
                     Image(systemName: "chevron.backward")
                     Text("Back")
                 })

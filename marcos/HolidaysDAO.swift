@@ -12,6 +12,7 @@ class HolidaysDAO: ObservableObject {
     
     @Published var holidays: [Holiday] = [];
     @Published var holidayWithStyle: [HolidayWithStyle] = []
+    
     @Published var holidaysPerMonth = [
         HolidayChart("Jan"),
         HolidayChart("Feb"),
@@ -30,7 +31,7 @@ class HolidaysDAO: ObservableObject {
     
     init() {
         
-        guard let url = URL(string: "https://calendarific.com/api/v2/holidays?&api_key=IBhJ1QUdouyN8NqqLsVUSqW8OReU3xxP&country=CN&year=2024") else {
+        guard let url = URL(string: "https://calendarific.com/api/v2/holidays?&api_key=IBhJ1QUdouyN8NqqLsVUSqW8OReU3xxP&country=US&year=2024") else {
             print("url invalida");
             return;
         }
@@ -55,6 +56,10 @@ class HolidaysDAO: ObservableObject {
                     for holiday in self.holidays {
                         print(holiday.date.datetime.month)
                         self.holidaysPerMonth[holiday.date.datetime.month - 1].numeroDeFeriados += 1;
+                    }
+                    
+                    for i in self.holidayWithStyle {
+                        print(i)
                     }
                 }
             } catch {
@@ -94,14 +99,14 @@ class HolidaysDAO: ObservableObject {
     func getHolidaySytle(holidayName: String) -> HolidayStyle {
         
         for holidayStyle in holidaysStyles {
-            for name in holidayName {
-                if (name.lowercased() == holidayName.lowercased()) {
+            for name in holidayStyle.nomes {
+                    if (holidayName.lowercased().contains(name.lowercased())) {
                     return holidayStyle;
                 }
             }
         }
         
-        return HolidayStyle(["national", "local"], Color.pink, "👨🏼‍💻");
+        return HolidayStyle(["national", "local"], Color.purple, "👨🏼‍💻");
         
         
     }
@@ -109,14 +114,14 @@ class HolidaysDAO: ObservableObject {
 
 let holidaysStyles: [HolidayStyle] = [
     HolidayStyle(["national", "local"], Color.verdinClaro, "🥶"),
-    HolidayStyle(["observance", "season"], Color.red, "🫥"),
+    HolidayStyle(["observance", "season"], Color.red, "🧑‍🚀"),
     HolidayStyle(["worldwide"], Color.blue, "🤬"),
     HolidayStyle(["christian", "orthodox", "hinduis", "hebrew", "muslim"], Color.yellow, "🫠")
 
 
 ]
 
-struct HolidayStyle {
+struct HolidayStyle: Hashable {
     
     init(_ nomes: [String], _ cor: Color, _ emoji: String) {
         self.nomes = nomes
@@ -135,7 +140,7 @@ struct HolidayStyle {
 
 
 
-struct HolidayWithStyle {
+struct HolidayWithStyle: Hashable {
     let holiday: Holiday;
     let holidayStyle: HolidayStyle;
 }

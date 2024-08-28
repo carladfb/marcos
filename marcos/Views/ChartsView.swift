@@ -29,7 +29,16 @@ struct ChartsView: View {
             
 
                 
+            List {
                 
+                ForEach(holidaysDAO.holidayWithStyle, id: \.self) {
+                    holiday in
+                    
+                    HolidayView(holidayName: holiday.holiday.name, holidaySytle: holiday.holidayStyle)
+
+                }
+                
+            }
                 
             
             
@@ -46,16 +55,39 @@ struct ChartsView: View {
     struct HolidayView: View {
         
         let holidayName: String;
-    //    let holidaySytle: HolidayStyle;
+        let holidaySytle: HolidayStyle;
         
         var body: some View {
-            Text("fsdfds")
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(
-                    Capsule()
-                        .fill(Color.red)
-                )
+            
+            HStack () {
+                
+                Text(holidaySytle.emoji)
+                    .font(.footnote)
+                    .padding(4)
+                    .background(
+                        Circle()
+                            .fill(Color.black)
+                            .opacity(0.35)
+                    )
+                
+                Text(holidayName)
+                    .foregroundColor(.white)
+                    .font(.body)
+                    .lineLimit(0)
+                    
+                    Spacer()
+                
+
+            }
+            .padding(.vertical, 4)
+            .padding(.horizontal, 8)
+            .frame(maxWidth: .infinity)
+            .background(
+                Capsule()
+                .fill(holidaySytle.cor)
+            )
+            
+
         }
         
 
