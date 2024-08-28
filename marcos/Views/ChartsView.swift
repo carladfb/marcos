@@ -25,29 +25,45 @@ struct ChartsView: View {
     
     var body: some View {
         
-        VStack {
-            
+        NavigationStack {
+            VStack {
 
-                
-            List {
-                
-                ForEach(holidaysDAO.holidayWithStyle, id: \.self) {
-                    holiday in
+                List {
                     
-                    HolidayView(holidayName: holiday.holiday.name, holidaySytle: holiday.holidayStyle)
-
+                    ForEach(holidaysDAO.holidayWithStyle, id: \.self) {
+                        holiday in
+                        
+                        HolidayView(holidayName: holiday.holiday.name, holidaySytle: holiday.holidayStyle)
+                        
+                    }
+                    
                 }
                 
-            }
                 
-            
-            
-            
-            
-            
-            ChartHolidaysPerMonthView(holidays: holidaysDAO.holidaysPerMonth, month: dateFormatter.string(from: Foundation.Date()))
-              
-        }.padding()
+                
+                
+                
+                
+                ChartHolidaysPerMonthView(holidays: holidaysDAO.holidaysPerMonth, month: dateFormatter.string(from: Foundation.Date()))
+                
+            }.padding()
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        HStack {
+                            Text("Calendar")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            
+                            ButtonCountries(holidaysDAO: HolidaysDAO())
+                        }
+                        .padding(.top)
+                        .frame(maxWidth: .infinity)
+                    }
+                }
+        }
+        
+        
         
         
     }
@@ -59,7 +75,8 @@ struct ChartsView: View {
         
         var body: some View {
             
-            HStack () {
+            
+            HStack {
                 
                 Text(holidaySytle.emoji)
                     .font(.footnote)
@@ -74,25 +91,30 @@ struct ChartsView: View {
                     .foregroundColor(.white)
                     .font(.body)
                     .lineLimit(0)
-                    
-                    Spacer()
                 
-
+                Spacer()
+                
+                
             }
             .padding(.vertical, 4)
             .padding(.horizontal, 8)
             .frame(maxWidth: .infinity)
             .background(
                 Capsule()
-                .fill(holidaySytle.cor)
+                    .fill(holidaySytle.cor)
             )
             
-
+            
+            
+            
+            
+            
+            
         }
         
-
         
-
+        
+        
         
         
     }

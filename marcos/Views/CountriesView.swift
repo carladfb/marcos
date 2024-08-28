@@ -11,16 +11,37 @@ struct CountriesView: View {
     
     @ObservedObject var holidaysDAO: HolidaysDAO
     
+//    @State private var searchCountry: [Country] = []
+//    @State private var searchTerm = ""
     @State var countryName:String = ""
+    
+    
+/*
+    var filteredCountry: [Country] {
+     //   guard !searchTerm.isEmpty else {return searchCountry}
+     //   return searchCountry.filter{ $0.country_name.localizedCaseInsensitiveContains(searchTerm) }
+        if searchTerm.isEmpty {
+            return HolidaysDAO.country
+                } else {
+                    return names.filter { $0.contains(searchText) }
+                }
+        
+    }
+    */
+    
     let columns = Array (repeating: GridItem(.flexible()), count: 3)
     var body: some View {
         VStack {
             HStack {
-                Button(action: {
-                    
-                }, label: {
-                    Image(systemName: "chevron.backward")
-                    Text("Back")
+
+
+                    Button(action: {
+                        
+                    }, label: {
+                    Image(systemName: "xmark")
+                        .foregroundColor(.red)
+
+
                 })
                 .padding(.leading, -100)
                 
@@ -28,7 +49,7 @@ struct CountriesView: View {
                     .font(.largeTitle)
                     .foregroundColor(Color.black)
                     .multilineTextAlignment(.center)
-                    .frame(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(alignment: .center)
                 
             }
             
@@ -43,48 +64,26 @@ struct CountriesView: View {
                                     Text(String(count.flag_unicode))
                                         .font(.system(size: 100))
                                     Text(String(count.country_name))
-                                        .foregroundColor(/*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/)
+                                        .foregroundColor(.black)
                                 }
                             })
-                            //                            Button("button") {
-                            //                                print(count)
-                            //                            }
-                            //RoundedRectangle(cornerRadius: 10.0)
-                            //    .frame(width: 100,height: 100)
-                            
-                            
                         }
                         
                     }
-                    /*            List {
-                     LazyVGrid(columns: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Columns@*/[GridItem(.fixed(200))]/*@END_MENU_TOKEN@*/) {
-                     ForEach(1...10, id: \.self) { count in
-                     Button(action: {
-                     print(count)
-                     }, label: {
-                     RoundedRectangle(cornerRadius: 15)
-                     .overlay {
-                     Text("botao numero " + String(count)).foregroundColor(.white)
-                     }
-                     .frame(width: 330, height: 75)
-                     
-                     
-                     })
-                     
-                     }
-                     }
-                     }
-                     }.searchable(text: $countryName)
-                     */
                 }
                 .padding()
-                
-                
-            }.searchable(text: $countryName)
+                //.searchable(text: $searchTerm, prompt: "Search Country")
+            }
+            .searchable(text: $countryName)
         }
     }
-}
     
+    }
+
+    
+
+
+
     #Preview {
         CountriesView(holidaysDAO: HolidaysDAO())
     }

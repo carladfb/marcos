@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ButtonCountries: View {
     @State private var isSheetPresented = false
-    @ObservedObject var holidaysDAO: HolidaysDAO
+    @ObservedObject var holidaysDAO: HolidaysDAO;
     
     var body: some View {
         Button(action: {

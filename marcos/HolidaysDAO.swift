@@ -31,7 +31,14 @@ class HolidaysDAO: ObservableObject {
     
     init() {
         
-        guard let url = URL(string: "https://calendarific.com/api/v2/holidays?&api_key=IBhJ1QUdouyN8NqqLsVUSqW8OReU3xxP&country=US&year=2024") else {
+        let currentCountry = "BR"
+        fetchHolydays(country: currentCountry)
+        
+    }
+    
+    func fetchHolydays(country: String) {
+        
+        guard let url = URL(string: "https://calendarific.com/api/v2/holidays?&api_key=IBhJ1QUdouyN8NqqLsVUSqW8OReU3xxP&country=\(country)&year=2024") else {
             print("url invalida");
             return;
         }
@@ -54,12 +61,12 @@ class HolidaysDAO: ObservableObject {
                     }
                     self.holidays = resposta.response.holidays
                     for holiday in self.holidays {
-                        print(holiday.date.datetime.month)
+                      //  print(holiday.date.datetime.month)
                         self.holidaysPerMonth[holiday.date.datetime.month - 1].numeroDeFeriados += 1;
                     }
                     
                     for i in self.holidayWithStyle {
-                        print(i)
+                       // print(i)
                     }
                 }
             } catch {
@@ -84,6 +91,10 @@ class HolidaysDAO: ObservableObject {
                 let resposta1 = try JSONDecoder().decode(RespostaCountries.self, from: data)
                 DispatchQueue.main.async {
                     self.countries = resposta1.response.countries
+                    for i in self.countries {
+                        print(i)
+                    }
+                    
 
                 }
             } catch {
@@ -91,9 +102,6 @@ class HolidaysDAO: ObservableObject {
             }
         }
         taskGetCountries.resume()
-        
-
-        
     }
     
     func getHolidaySytle(holidayName: String) -> HolidayStyle {
@@ -196,7 +204,7 @@ struct ResponseCountry: Codable, Hashable {
 
 struct Country: Codable, Hashable {
     let country_name: String;
-  //  let iso-3166:
+    let iso_3166: String;
     let flag_unicode: String;
     let total_holidays: Int;
     
