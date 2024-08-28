@@ -12,7 +12,7 @@ struct ChartsView: View {
     
     @ObservedObject var holidaysDAO: HolidaysDAO;
     let dateFormatter: DateFormatter;
-                   
+    
     init(holidaysDAO: HolidaysDAO) {
         
         self.dateFormatter = DateFormatter()
@@ -20,72 +20,20 @@ struct ChartsView: View {
         self.holidaysDAO = holidaysDAO;
         print(dateFormatter.string(from: Foundation.Date()))
     }
-
-
+    
+    
     
     var body: some View {
-        GeometryReader {
-            geometry in
-            VStack {
+        
+        VStack {
+            ChartHolidaysPerMonthView(holidays: holidaysDAO.holidaysPerMonth, month: dateFormatter.string(from: Foundation.Date()))
                 
-                List {
-                    
-                    ForEach(holidaysDAO.countries, id: \.self) {
-                        a in
-                        
-                        VStack {
-                            
-                            Text(String(a.flag_unicode))
-                                .font(.system(size: 100))
-                            Text(String(a.country_name))
-                            
-                        }
-                    }
-                    
-                }
                 
-
                 
-                //  ScrollView(.horizontal) {
-                HStack {
-                    Chart {
-                        ForEach (holidaysDAO.holidaysPerMonth) {
-                            dado in
-                            BarMark(x: .value("", dado.monthName),
-                                    y: .value("", dado.numeroDeFeriados))
-//                            .foregroundStyle(
-//                                Color.cinzinha)
-                            .foregroundStyle(
-                                dateFormatter.string(from: Foundation.Date()).prefix(3) == dado.monthName ?
-                                Color.vermei :
-                                Color.rosinhaGrafico)
-                            .annotation(position: .top, alignment: .center, spacing: CGFloat(5), content: {
-                                Text(String(Int(dado.numeroDeFeriados))).font(.caption2)
-                                    .foregroundColor(dateFormatter.string(from: Foundation.Date()).prefix(3) == dado.monthName ?
-                                Color.vermei :
-                                Color.black)
-                            })
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
-                            
-                            
-                        }
-                        
-                        
-                    }
-                    .chartLegend(position: .bottom, alignment: .top, spacing: 16)
-                    .chartScrollableAxes(.horizontal)
-                    .chartXVisibleDomain(length: 6)
-                    
-                    .padding(.vertical)
-                    .frame(height: 300)
-                  
-                    
-                    
-                    
-                    
-                }
-            }.padding()
-        }
+                
+              
+        }.padding()
+        
         
     }
 }

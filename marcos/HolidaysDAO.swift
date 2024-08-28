@@ -93,7 +93,8 @@ struct ResponseHoliday: Codable, Hashable {
     let holidays: [Holiday]
 }
 
-struct Holiday: Codable, Hashable {
+struct Holiday: Codable, Hashable, Identifiable {
+    let id = UUID()
     let name: String
     let description: String
     let type: [String]

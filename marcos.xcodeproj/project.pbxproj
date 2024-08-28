@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		791DE4922C7E47E0000D8BB9 /* HolidaysDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791DE4912C7E47E0000D8BB9 /* HolidaysDAO.swift */; };
+		792BA3AE2C7F97650050D3D3 /* ChartHolidaysPerMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792BA3AD2C7F97650050D3D3 /* ChartHolidaysPerMonthView.swift */; };
 		796ED1E12C7CFD690059EBA4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ED1E02C7CFD690059EBA4 /* HomeView.swift */; };
 		796ED1E32C7CFD750059EBA4 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ED1E22C7CFD750059EBA4 /* ChartsView.swift */; };
 		796ED1E52C7CFD810059EBA4 /* CountriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ED1E42C7CFD810059EBA4 /* CountriesView.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		791DE4912C7E47E0000D8BB9 /* HolidaysDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysDAO.swift; sourceTree = "<group>"; };
+		792BA3AD2C7F97650050D3D3 /* ChartHolidaysPerMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHolidaysPerMonthView.swift; sourceTree = "<group>"; };
 		796ED1E02C7CFD690059EBA4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		796ED1E22C7CFD750059EBA4 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
 		796ED1E42C7CFD810059EBA4 /* CountriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesView.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				796ED1DF2C7CFD560059EBA4 /* Views */,
+				792BA3AD2C7F97650050D3D3 /* ChartHolidaysPerMonthView.swift */,
 				7A36A9112C7E4AAC0059D714 /* APIbandeiras.swift */,
 				7F14908F2C7CFA6200E4BD63 /* marcosApp.swift */,
 				7F1490912C7CFA6200E4BD63 /* ContentView.swift */,
@@ -297,6 +300,7 @@
 				7F1490902C7CFA6200E4BD63 /* marcosApp.swift in Sources */,
 				796ED1E32C7CFD750059EBA4 /* ChartsView.swift in Sources */,
 				7F2E86F52C7E6B400041CCD4 /* InThisDayViewModel.swift in Sources */,
+				792BA3AE2C7F97650050D3D3 /* ChartHolidaysPerMonthView.swift in Sources */,
 				7A36A9122C7E4AAC0059D714 /* APIbandeiras.swift in Sources */,
 				796ED1E52C7CFD810059EBA4 /* CountriesView.swift in Sources */,
 				791DE4922C7E47E0000D8BB9 /* HolidaysDAO.swift in Sources */,
