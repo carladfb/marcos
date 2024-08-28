@@ -10,13 +10,14 @@ import Charts
 
 struct ChartsView: View {
     
-    @ObservedObject var holidaysDAO = HolidaysDAO()
+    @ObservedObject var holidaysDAO: HolidaysDAO;
     let dateFormatter: DateFormatter;
                    
-    init() {
+    init(holidaysDAO: HolidaysDAO) {
         
         self.dateFormatter = DateFormatter()
         self.dateFormatter.dateFormat = "MMMM"
+        self.holidaysDAO = holidaysDAO;
         print(dateFormatter.string(from: Foundation.Date()))
     }
 
@@ -94,5 +95,5 @@ struct ChartsView: View {
 
 
 #Preview {
-    ChartsView()
+    ChartsView(holidaysDAO: HolidaysDAO())
 }

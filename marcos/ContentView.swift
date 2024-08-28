@@ -8,22 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var holidaysDAO = HolidaysDAO()
+    
     var body: some View {
         TabView {
-            HomeView().tabItem {
+            HomeView(holidaysDAO: holidaysDAO).tabItem {
                 VStack {
                     Image(systemName: "house.fill")
                     Text("Home")
                 }
                 
             }
-            ChartsView().tabItem {
+            ChartsView(holidaysDAO: holidaysDAO).tabItem {
                 VStack {
                     Image(systemName: "chart.bar.xaxis")
                     Text("Charts")
                 }
             }
-            CountriesView().tabItem {
+            CountriesView(holidaysDAO: holidaysDAO).tabItem {
                 VStack {
                     Image(systemName: "globe.americas.fill")
                     Text("Countries")

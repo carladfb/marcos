@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CountriesView: View {
     
-    @ObservedObject var holidaysDAO = HolidaysDAO()
+    @ObservedObject var holidaysDAO: HolidaysDAO
     
     @State var countryName:String = ""
     let columns = Array (repeating: GridItem(.flexible()), count: 3)
@@ -84,6 +84,6 @@ struct CountriesView: View {
 }
     
     #Preview {
-        CountriesView()
+        CountriesView(holidaysDAO: HolidaysDAO())
     }
 

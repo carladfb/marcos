@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @ObservedObject var holidaysDAO: HolidaysDAO;
+    
     var body: some View {
         ZStack{
             Color.fundinho.ignoresSafeArea()
@@ -22,5 +25,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeView(holidaysDAO: HolidaysDAO())
 }
