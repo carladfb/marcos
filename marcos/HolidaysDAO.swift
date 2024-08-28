@@ -11,6 +11,7 @@ import SwiftUI
 class HolidaysDAO: ObservableObject {
     
     @Published var holidays: [Holiday] = [];
+    @Published var holidayWithStyle: [HolidayWithStyle] = []
     @Published var holidaysPerMonth = [
         HolidayChart("Jan"),
         HolidayChart("Feb"),
@@ -29,7 +30,7 @@ class HolidaysDAO: ObservableObject {
     
     init() {
         
-        guard let url = URL(string: "https://calendarific.com/api/v2/holidays?&api_key=x6aXStVO9yKBYS1GWdOip4NUVWVtyhBE&country=CN&year=2024") else {
+        guard let url = URL(string: "https://calendarific.com/api/v2/holidays?&api_key=IBhJ1QUdouyN8NqqLsVUSqW8OReU3xxP&country=CN&year=2024") else {
             print("url invalida");
             return;
         }
@@ -44,6 +45,12 @@ class HolidaysDAO: ObservableObject {
             do {
                 let resposta = try JSONDecoder().decode(Resposta.self, from: data)
                 DispatchQueue.main.async {
+                    
+                    
+                    for holiday in resposta.response.holidays {
+                        self.holidayWithStyle.append(HolidayWithStyle(holiday: holiday,
+                                                                      holidayStyle: self.getHolidaySytle(holidayName: holiday.type[0])))
+                    }
                     self.holidays = resposta.response.holidays
                     for holiday in self.holidays {
                         print(holiday.date.datetime.month)
@@ -56,7 +63,7 @@ class HolidaysDAO: ObservableObject {
         }
         taskGetHolidays.resume()
         
-        guard let url = URL(string: "https://calendarific.com/api/v2/countries?&api_key=x6aXStVO9yKBYS1GWdOip4NUVWVtyhBE") else {
+        guard let url = URL(string: "https://calendarific.com/api/v2/countries?&api_key=IBhJ1QUdouyN8NqqLsVUSqW8OReU3xxP") else {
             print("url invalida");
             return;
         }
@@ -83,6 +90,54 @@ class HolidaysDAO: ObservableObject {
 
         
     }
+    
+    func getHolidaySytle(holidayName: String) -> HolidayStyle {
+        
+        for holidayStyle in holidaysStyles {
+            for name in holidayName {
+                if (name.lowercased() == holidayName.lowercased()) {
+                    return holidayStyle;
+                }
+            }
+        }
+        
+        return HolidayStyle(["national", "local"], Color.pink, "👨🏼‍💻");
+        
+        
+    }
+}
+
+let holidaysStyles: [HolidayStyle] = [
+    HolidayStyle(["national", "local"], Color.verdinClaro, "🥶"),
+    HolidayStyle(["observance", "season"], Color.red, "🫥"),
+    HolidayStyle(["worldwide"], Color.blue, "🤬"),
+    HolidayStyle(["christian", "orthodox", "hinduis", "hebrew", "muslim"], Color.yellow, "🫠")
+
+
+]
+
+struct HolidayStyle {
+    
+    init(_ nomes: [String], _ cor: Color, _ emoji: String) {
+        self.nomes = nomes
+        self.cor = cor
+        self.emoji = emoji
+    }
+    
+
+    let nomes: [String];
+    let cor: Color;
+    let emoji: String;
+    
+
+    
+}
+
+
+
+struct HolidayWithStyle {
+    let holiday: Holiday;
+    let holidayStyle: HolidayStyle;
 }
 
 struct Resposta: Codable, Hashable {
@@ -93,8 +148,7 @@ struct ResponseHoliday: Codable, Hashable {
     let holidays: [Holiday]
 }
 
-struct Holiday: Codable, Hashable, Identifiable {
-    let id = UUID()
+struct Holiday: Codable, Hashable {
     let name: String
     let description: String
     let type: [String]

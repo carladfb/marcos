@@ -26,13 +26,41 @@ struct ChartsView: View {
     var body: some View {
         
         VStack {
+            
+
+                
+                
+                
+            
+            
+            
+            
+            
             ChartHolidaysPerMonthView(holidays: holidaysDAO.holidaysPerMonth, month: dateFormatter.string(from: Foundation.Date()))
-                
-                
-                
-                
               
         }.padding()
+        
+        
+    }
+    
+    struct HolidayView: View {
+        
+        let holidayName: String;
+    //    let holidaySytle: HolidayStyle;
+        
+        var body: some View {
+            Text("fsdfds")
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(
+                    Capsule()
+                        .fill(Color.red)
+                )
+        }
+        
+
+        
+
         
         
     }
