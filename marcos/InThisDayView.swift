@@ -15,7 +15,7 @@ struct InThisDayView: View {
     var body: some View {
         VStack {
             if let evento = viewModel.currentEvento {
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: 12) {
                     HStack {
                         Text("Today in the past")
                             .font(.title3)
@@ -46,14 +46,15 @@ struct InThisDayView: View {
                     ScrollView {
                         Text(evento.pages.first?.extract ?? "")
                             .font(.body)
-                            .padding()
+//                            .padding()
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .frame(maxHeight: 150)
+                    
                 }
                 .padding()
                 .background(Color.white)
-                .cornerRadius(12)
+                .cornerRadius(20)
             } else {
                 Text("Nenhum evento disponível")
                     .padding()
@@ -62,7 +63,7 @@ struct InThisDayView: View {
         .onAppear {
             viewModel.fetchEventos()
         }
-        .padding()
+        .padding(30)
     }
 }
 
