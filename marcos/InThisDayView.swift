@@ -63,7 +63,8 @@ struct InThisDayView: View {
         .onAppear {
             viewModel.fetchEventos()
         }
-        .padding(30)
+        .padding(.horizontal, 30)
+        .padding(.vertical, 15)
     }
 }
 

@@ -15,8 +15,8 @@ struct HolidayView: View {
     var body: some View {
         HStack {
             Text(holidaySytle.emoji)
-                .font(.footnote)
-                .padding(4)
+                .font(.body)
+                .padding(6)
                 .background(
                     Circle()
                         .fill(Color.black)
@@ -29,8 +29,8 @@ struct HolidayView: View {
             
             Spacer()
         }
-        .padding(.vertical, 4)
-        .padding(.horizontal, 8)
+        .padding(.vertical, 8)
+        .padding(.horizontal, 5)
         .frame(maxWidth: .infinity)
         .background(
             Capsule()

@@ -17,6 +17,9 @@ struct HomeView: View {
                 Color.fundinho.ignoresSafeArea()
                 VStack {
                     TodayDateView()
+                    HolidayView(holidayName: holidaysDAO.actualHoliday?.holiday.name ?? "Today is a normal day", holidaySytle: holidaysDAO.actualHoliday?.holidayStyle ?? HolidayStyle([], Color.cinzinhaClaro, "😕"))
+                        .padding(.horizontal, 30)
+//                        .background(Capsule().fill(holidaysDAO.actualHoliday?.holidayStyle.cor ?? Color.cinzinhaClaro))
                     InThisDayView()
                 }
             }

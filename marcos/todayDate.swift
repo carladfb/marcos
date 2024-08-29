@@ -21,11 +21,11 @@ struct TodayDateView: View {
     var body: some View {
         VStack {
             Text(day)
-                .font(.system(size: 90).bold())
+                .font(.system(size: 120).bold())
             Text(month)
                 .font(.system(size: 20))
         }
-        .padding()
+        .padding(.bottom, 80)
     }
 }
 
