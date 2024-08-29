@@ -204,9 +204,16 @@ struct ResponseCountry: Codable, Hashable {
 
 struct Country: Codable, Hashable {
     let country_name: String;
-    let iso_3166: String;
+    let iso3166: String;
     let flag_unicode: String;
     let total_holidays: Int;
+    
+    enum CodingKeys: String, CodingKey {
+        case country_name = "country_name"
+        case iso3166 = "iso-3166"
+        case flag_unicode = "flag_unicode"
+        case total_holidays = "total_holidays"
+    }
     
 }
 
