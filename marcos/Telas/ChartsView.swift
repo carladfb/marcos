@@ -20,11 +20,30 @@ struct ChartsView: View {
         self.holidaysDAO = holidaysDAO;
         print(dateFormatter.string(from: Foundation.Date()))
     }
-
+    
     var body: some View {
         
         NavigationStack {
             VStack {
+                
+                
+                ForEach(0..<3) { i in
+                    
+                    
+                    HStack {
+                        DaysToView(date:
+                                    String(holidaysDAO.recentsHolidays[i].holiday.date.datetime.month)
+                        )
+                        HolidayButtonView(holiday: holidaysDAO.recentsHolidays[i])
+                    }
+                    .padding(10)
+                    .background(
+                        Capsule().fill(Color.white)
+                    )
+                    
+
+                }
+                
                 List {
                     ForEach(holidaysDAO.holidayWithStyle, id: \.self) {
                         holiday in
@@ -34,6 +53,7 @@ struct ChartsView: View {
                 ChartHolidaysPerMonthView(holidays: holidaysDAO.holidaysPerMonth, month: dateFormatter.string(from: Foundation.Date()))
                 
             }.padding()
+                .background(Color.fundinho)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         HStack {
@@ -48,8 +68,14 @@ struct ChartsView: View {
                         .frame(maxWidth: .infinity)
                     }
                 }
+            
         }
+        
     }
+}
+
+#Preview {
+    ChartsView(holidaysDAO: HolidaysDAO())
 }
 
 

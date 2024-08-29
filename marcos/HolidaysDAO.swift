@@ -10,7 +10,6 @@ import SwiftUI
 
 class HolidaysDAO: ObservableObject {
     
-    // @Published var holidays: [Holiday] = [];
     @Published var holidayWithStyle: [HolidayWithStyle] = []
     @Published var actualHoliday: HolidayWithStyle?
     @Published var actualCountry: Country?
@@ -29,6 +28,11 @@ class HolidaysDAO: ObservableObject {
         HolidayChart("Dec")
     ];
     @Published var countries: [Country] = [];
+    @Published var recentsHolidays: [HolidayWithStyle] = []
+    @Published var pastHolidays: [HolidayWithStyle] = []
+
+    let today = Foundation.Date()
+    let formatter = DateFormatter()
     var holidaysStyles: [HolidayStyle] = [];
     
     
@@ -37,10 +41,7 @@ class HolidaysDAO: ObservableObject {
     init() {
         
         let currentCountry = "BR"
-
         fetchDays(currentCountry: currentCountry)
-        
-        
     }
     
     func fetchDays(currentCountry: String) {
@@ -74,8 +75,7 @@ class HolidaysDAO: ObservableObject {
     
     func fetchHolydays(country: String) {
         
-        let today = Foundation.Date()
-        let formatter = DateFormatter()
+        
         formatter.dateFormat = "yyyy"
         let dateString = formatter.string(from: today)
         self.actualCountry = nil;
@@ -125,20 +125,15 @@ class HolidaysDAO: ObservableObject {
                         self.holidaysPerMonth[holiday.date.datetime.month - 1].numeroDeFeriados += 1;
                     }
                     
-                    formatter.dateFormat = "MM/dd"
-                    let dateString = formatter.string(from: today)
+                    self.formatter.dateFormat = "MM/dd"
+                    let dateString = self.formatter.string(from: self.today)
                     
                     
                     
                     self.actualHoliday = nil
                     
                     for holiday in self.holidayWithStyle {
-                        //                        print((holiday.holiday.date.datetime.month > 9 ? "" : "0") +
-                        //                              String(holiday.holiday.date.datetime.month) + "/" +
-                        //                              (holiday.holiday.date.datetime.day > 9 ? "" : "0") +
-                        //                                    String(holiday.holiday.date.datetime.day))
-                        
-                        
+
                         if (((holiday.holiday.date.datetime.month > 9 ? "" : "0") +
                              String(holiday.holiday.date.datetime.month) + "/" +
                              (holiday.holiday.date.datetime.day > 9 ? "" : "0") +
@@ -150,7 +145,27 @@ class HolidaysDAO: ObservableObject {
                     }
                     
                     
-                    print(self.actualHoliday)
+                    
+                    
+                    
+                    
+                    let recentsHolidays: [Holiday] = []
+                    
+                    self.formatter.dateFormat = "MM"
+                    let monthInt = Int(self.formatter.string(from: self.today))
+                    self.formatter.dateFormat = "dd"
+                    let dayInt = Int(self.formatter.string(from: self.today))
+                    for holiday in self.holidayWithStyle {
+                        if (Int(holiday.holiday.date.datetime.month) > monthInt! ||
+                            (Int(holiday.holiday.date.datetime.month) == monthInt! && Int(holiday.holiday.date.datetime.day) >= dayInt!)) {
+                            self.recentsHolidays.append(holiday)
+                        } else {
+                            self.pastHolidays.append(holiday)
+                        }
+
+                    }
+                    
+                    print(self.pastHolidays)
                     
                     
                 }
@@ -180,6 +195,7 @@ class HolidaysDAO: ObservableObject {
     
     
 }
+
 
 
 

@@ -14,7 +14,8 @@
 		796ED1E12C7CFD690059EBA4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ED1E02C7CFD690059EBA4 /* HomeView.swift */; };
 		796ED1E32C7CFD750059EBA4 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ED1E22C7CFD750059EBA4 /* ChartsView.swift */; };
 		796ED1E52C7CFD810059EBA4 /* CountriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ED1E42C7CFD810059EBA4 /* CountriesView.swift */; };
-		7A36A9122C7E4AAC0059D714 /* APIbandeiras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36A9112C7E4AAC0059D714 /* APIbandeiras.swift */; };
+		797C00072C81221400EFC77A /* HolidayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797C00062C81221400EFC77A /* HolidayButtonView.swift */; };
+		797C00092C812CA500EFC77A /* DaysToView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797C00082C812CA500EFC77A /* DaysToView.swift */; };
 		7F1490902C7CFA6200E4BD63 /* marcosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14908F2C7CFA6200E4BD63 /* marcosApp.swift */; };
 		7F1490922C7CFA6200E4BD63 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1490912C7CFA6200E4BD63 /* ContentView.swift */; };
 		7F1490942C7CFA6300E4BD63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F1490932C7CFA6300E4BD63 /* Assets.xcassets */; };
@@ -53,7 +54,8 @@
 		796ED1E02C7CFD690059EBA4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		796ED1E22C7CFD750059EBA4 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
 		796ED1E42C7CFD810059EBA4 /* CountriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesView.swift; sourceTree = "<group>"; };
-		7A36A9112C7E4AAC0059D714 /* APIbandeiras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIbandeiras.swift; sourceTree = "<group>"; };
+		797C00062C81221400EFC77A /* HolidayButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayButtonView.swift; sourceTree = "<group>"; };
+		797C00082C812CA500EFC77A /* DaysToView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysToView.swift; sourceTree = "<group>"; };
 		7F14908C2C7CFA6200E4BD63 /* marcos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marcos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F14908F2C7CFA6200E4BD63 /* marcosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = marcosApp.swift; sourceTree = "<group>"; };
 		7F1490912C7CFA6200E4BD63 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,12 +98,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		796ED1DF2C7CFD560059EBA4 /* Views */ = {
+		796ED1DF2C7CFD560059EBA4 /* Telas */ = {
 			isa = PBXGroup;
 			children = (
 				796ED1E02C7CFD690059EBA4 /* HomeView.swift */,
 				796ED1E22C7CFD750059EBA4 /* ChartsView.swift */,
 				796ED1E42C7CFD810059EBA4 /* CountriesView.swift */,
+			);
+			path = Telas;
+			sourceTree = "<group>";
+		};
+		797C00052C81218400EFC77A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				792BA3AD2C7F97650050D3D3 /* ChartHolidaysPerMonthView.swift */,
+				7F1490912C7CFA6200E4BD63 /* ContentView.swift */,
+				7F2E86F62C7E6CBC0041CCD4 /* InThisDayView.swift */,
+				7F2527752C7F9C0C00F352EA /* ButtonCountries.swift */,
+				796133CF2C80FDC400844512 /* HolidayView.swift */,
+				796133D12C81059500844512 /* SearchBar.swift */,
+				797C00062C81221400EFC77A /* HolidayButtonView.swift */,
+				797C00082C812CA500EFC77A /* DaysToView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -129,21 +146,15 @@
 		7F14908E2C7CFA6200E4BD63 /* marcos */ = {
 			isa = PBXGroup;
 			children = (
-				796ED1DF2C7CFD560059EBA4 /* Views */,
-				792BA3AD2C7F97650050D3D3 /* ChartHolidaysPerMonthView.swift */,
-				7A36A9112C7E4AAC0059D714 /* APIbandeiras.swift */,
+				797C00052C81218400EFC77A /* Views */,
+				796ED1DF2C7CFD560059EBA4 /* Telas */,
 				7F14908F2C7CFA6200E4BD63 /* marcosApp.swift */,
-				7F1490912C7CFA6200E4BD63 /* ContentView.swift */,
 				7F1490932C7CFA6300E4BD63 /* Assets.xcassets */,
 				7F1490952C7CFA6300E4BD63 /* marcos.entitlements */,
 				7F1490962C7CFA6300E4BD63 /* Preview Content */,
 				791DE4912C7E47E0000D8BB9 /* HolidaysDAO.swift */,
 				7F2E86F42C7E6B400041CCD4 /* InThisDayViewModel.swift */,
-				7F2E86F62C7E6CBC0041CCD4 /* InThisDayView.swift */,
 				7F2E86F82C7E75930041CCD4 /* TodayDate.swift */,
-				7F2527752C7F9C0C00F352EA /* ButtonCountries.swift */,
-				796133CF2C80FDC400844512 /* HolidayView.swift */,
-				796133D12C81059500844512 /* SearchBar.swift */,
 			);
 			path = marcos;
 			sourceTree = "<group>";
@@ -306,6 +317,8 @@
 				796ED1E12C7CFD690059EBA4 /* HomeView.swift in Sources */,
 				796133D02C80FDC400844512 /* HolidayView.swift in Sources */,
 				7F2E86F92C7E75930041CCD4 /* TodayDate.swift in Sources */,
+				797C00072C81221400EFC77A /* HolidayButtonView.swift in Sources */,
+				797C00092C812CA500EFC77A /* DaysToView.swift in Sources */,
 				7F1490922C7CFA6200E4BD63 /* ContentView.swift in Sources */,
 				7F1490902C7CFA6200E4BD63 /* marcosApp.swift in Sources */,
 				7F2527762C7F9C0C00F352EA /* ButtonCountries.swift in Sources */,
@@ -313,7 +326,6 @@
 				796133D22C81059500844512 /* SearchBar.swift in Sources */,
 				7F2E86F52C7E6B400041CCD4 /* InThisDayViewModel.swift in Sources */,
 				792BA3AE2C7F97650050D3D3 /* ChartHolidaysPerMonthView.swift in Sources */,
-				7A36A9122C7E4AAC0059D714 /* APIbandeiras.swift in Sources */,
 				796ED1E52C7CFD810059EBA4 /* CountriesView.swift in Sources */,
 				791DE4922C7E47E0000D8BB9 /* HolidaysDAO.swift in Sources */,
 				7F2E86F72C7E6CBC0041CCD4 /* InThisDayView.swift in Sources */,

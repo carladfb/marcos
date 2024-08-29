@@ -40,7 +40,7 @@ struct ChartHolidaysPerMonthView: View {
         .chartScrollableAxes(.horizontal)
         .chartXVisibleDomain(length: 6)
         .padding(.vertical)
-        .frame(height: 300)
+        .frame(height: 200)
     }
 }
 
