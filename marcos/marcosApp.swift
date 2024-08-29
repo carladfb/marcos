@@ -12,7 +12,6 @@ struct marcosApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-            //oiansfoiansfoiasnfoi
         }
     }
 }

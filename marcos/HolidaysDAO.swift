@@ -10,7 +10,7 @@ import SwiftUI
 
 class HolidaysDAO: ObservableObject {
     
-    @Published var holidays: [Holiday] = [];
+   // @Published var holidays: [Holiday] = [];
     @Published var holidayWithStyle: [HolidayWithStyle] = []
     
     @Published var holidaysPerMonth = [
@@ -54,13 +54,16 @@ class HolidaysDAO: ObservableObject {
                 let resposta = try JSONDecoder().decode(Resposta.self, from: data)
                 DispatchQueue.main.async {
                     
-                    
+                    self.holidayWithStyle.removeAll()
                     for holiday in resposta.response.holidays {
                         self.holidayWithStyle.append(HolidayWithStyle(holiday: holiday,
                                                                       holidayStyle: self.getHolidaySytle(holidayName: holiday.type[0])))
                     }
-                    self.holidays = resposta.response.holidays
-                    for holiday in self.holidays {
+                  //  self.holidays = resposta.response.holidays
+                    for i in 0..<self.holidaysPerMonth.count {
+                        self.holidaysPerMonth[i].numeroDeFeriados = 0;
+                    }
+                    for holiday in resposta.response.holidays {
                       //  print(holiday.date.datetime.month)
                         self.holidaysPerMonth[holiday.date.datetime.month - 1].numeroDeFeriados += 1;
                     }
@@ -121,10 +124,10 @@ class HolidaysDAO: ObservableObject {
 }
 
 let holidaysStyles: [HolidayStyle] = [
-    HolidayStyle(["national", "local"], Color.verdinClaro, "💘"),
-    HolidayStyle(["observance", "season"], Color.red, "🤍"),
-    HolidayStyle(["worldwide"], Color.blue, "🌎"),
-    HolidayStyle(["christian", "orthodox", "hinduis", "hebrew", "muslim"], Color.yellow, "👏")
+    HolidayStyle(["national", "local"], Color.verdinClaro, "🏳️"),
+    HolidayStyle(["observance", "season"], Color.vermeiTchan, "🤍"),
+    HolidayStyle(["worldwide"], Color.azulzinclaro, "🌎"),
+    HolidayStyle(["christian", "orthodox", "hinduis", "hebrew", "muslim"], Color.amareloClarin, "👏")
 
 
 ]
