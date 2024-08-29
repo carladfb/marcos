@@ -13,7 +13,7 @@ class HolidaysDAO: ObservableObject {
    // @Published var holidays: [Holiday] = [];
     @Published var holidayWithStyle: [HolidayWithStyle] = []
     @Published var actualHoliday: HolidayWithStyle?
-    
+    @Published var actualCountry: Country?
     @Published var holidaysPerMonth = [
         HolidayChart("Jan"),
         HolidayChart("Feb"),
@@ -39,7 +39,19 @@ class HolidaysDAO: ObservableObject {
     
     func fetchHolydays(country: String) {
         
-        guard let url = URL(string: "https://calendarific.com/api/v2/holidays?&api_key=s2gG9HyYCP7wM2AcgzU3T2dcKMVWqooI&country=\(country)&year=2024") else {
+        let today = Foundation.Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy"
+        let dateString = formatter.string(from: today)
+        self.actualCountry = nil;
+        for countryI in self.countries {
+            if (country == countryI.iso3166) {
+                self.actualCountry = countryI
+            }
+        }
+        
+        
+        guard let url = URL(string: "https://calendarific.com/api/v2/holidays?&api_key=s2gG9HyYCP7wM2AcgzU3T2dcKMVWqooI&country=\(country)&year=\(dateString)") else {
             print("url invalida");
             return;
         }
@@ -67,10 +79,7 @@ class HolidaysDAO: ObservableObject {
                     for holiday in resposta.response.holidays {
                         self.holidaysPerMonth[holiday.date.datetime.month - 1].numeroDeFeriados += 1;
                     }
-                    
-                    
-                    let today = Foundation.Date()
-                    let formatter = DateFormatter()
+                 
                     formatter.dateFormat = "MM/dd"
                     let dateString = formatter.string(from: today)
                     
@@ -122,6 +131,8 @@ class HolidaysDAO: ObservableObject {
                 let resposta1 = try JSONDecoder().decode(RespostaCountries.self, from: data)
                 DispatchQueue.main.async {
                     self.countries = resposta1.response.countries
+                    
+                    
 
                 }
             } catch {
@@ -141,7 +152,7 @@ class HolidaysDAO: ObservableObject {
             }
         }
         
-        return HolidayStyle(["national", "local"], Color.purple, "👨🏼‍💻");
+        return HolidayStyle(["national", "local"], Color.verdinClaro, "🏳️");
         
         
     }
