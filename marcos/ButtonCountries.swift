@@ -16,9 +16,9 @@ struct ButtonCountries: View {
             isSheetPresented.toggle()
         }) {
             HStack(spacing: 4) {
-                Text("🇧🇷")
+                Text(holidaysDAO.actualCountry?.flag_unicode ?? "🏳️")
                     .frame(width: 20, height: 20)
-                Text("BR")
+                Text(holidaysDAO.actualCountry?.iso3166 ?? "BR")
                     .foregroundColor(.black)
                 Image(systemName: "chevron.down")
                     .foregroundColor(.vermeiTchan)

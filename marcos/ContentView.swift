@@ -11,6 +11,13 @@ struct ContentView: View {
     
     @ObservedObject var holidaysDAO = HolidaysDAO()
     
+    init() {
+            let appearance = UITabBarAppearance()
+            appearance.backgroundColor = .white
+            UITabBar.appearance().standardAppearance = appearance
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
+    
     var body: some View {
         TabView {
             HomeView(holidaysDAO: holidaysDAO).tabItem {
@@ -18,7 +25,6 @@ struct ContentView: View {
                     Image(systemName: "house.fill")
                     Text("Home")
                 }
-                
             }
             ChartsView(holidaysDAO: holidaysDAO).tabItem {
                 VStack {
@@ -26,16 +32,11 @@ struct ContentView: View {
                     Text("Charts")
                 }
             }
-            CountriesView(holidaysDAO: holidaysDAO).tabItem {
-                VStack {
-                    Image(systemName: "globe.americas.fill")
-                    Text("Countries")
-                }
-            }
-            
         }
+        .accentColor(.vermeiTchan)
     }
 }
+
 
 #Preview {
     ContentView()

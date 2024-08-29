@@ -38,12 +38,12 @@ class HolidaysDAO: ObservableObject {
         
         let currentCountry = "BR"
 
-        fetchDays()
-        fetchHolydays(country: currentCountry)
+        fetchDays(currentCountry: currentCountry)
+        
         
     }
     
-    func fetchDays() {
+    func fetchDays(currentCountry: String) {
         
         guard let url = URL(string: "https://calendarific.com/api/v2/countries?&api_key=s2gG9HyYCP7wM2AcgzU3T2dcKMVWqooI") else {
             print("url invalida");
@@ -61,6 +61,7 @@ class HolidaysDAO: ObservableObject {
                 let resposta1 = try JSONDecoder().decode(RespostaCountries.self, from: data)
                 DispatchQueue.main.async {
                     self.countries = resposta1.response.countries
+                    self.fetchHolydays(country: currentCountry)
 
                 }
             } catch {
