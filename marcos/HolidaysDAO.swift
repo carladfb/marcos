@@ -12,6 +12,7 @@ class HolidaysDAO: ObservableObject {
     
    // @Published var holidays: [Holiday] = [];
     @Published var holidayWithStyle: [HolidayWithStyle] = []
+    @Published var actualHoliday: HolidayWithStyle?
     
     @Published var holidaysPerMonth = [
         HolidayChart("Jan"),
@@ -38,7 +39,7 @@ class HolidaysDAO: ObservableObject {
     
     func fetchHolydays(country: String) {
         
-        guard let url = URL(string: "https://calendarific.com/api/v2/holidays?&api_key=IBhJ1QUdouyN8NqqLsVUSqW8OReU3xxP&country=\(country)&year=2024") else {
+        guard let url = URL(string: "https://calendarific.com/api/v2/holidays?&api_key=s2gG9HyYCP7wM2AcgzU3T2dcKMVWqooI&country=\(country)&year=2024") else {
             print("url invalida");
             return;
         }
@@ -59,18 +60,45 @@ class HolidaysDAO: ObservableObject {
                         self.holidayWithStyle.append(HolidayWithStyle(holiday: holiday,
                                                                       holidayStyle: self.getHolidaySytle(holidayName: holiday.type[0])))
                     }
-                  //  self.holidays = resposta.response.holidays
+
                     for i in 0..<self.holidaysPerMonth.count {
                         self.holidaysPerMonth[i].numeroDeFeriados = 0;
                     }
                     for holiday in resposta.response.holidays {
-                      //  print(holiday.date.datetime.month)
                         self.holidaysPerMonth[holiday.date.datetime.month - 1].numeroDeFeriados += 1;
                     }
                     
-                    for i in self.holidayWithStyle {
-                       // print(i)
+                    
+                    let today = Foundation.Date()
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "MM/dd"
+                    let dateString = formatter.string(from: today)
+                    
+                    
+                    
+                    self.actualHoliday = nil
+                    
+                    for holiday in self.holidayWithStyle {
+//                        print((holiday.holiday.date.datetime.month > 9 ? "" : "0") +
+//                              String(holiday.holiday.date.datetime.month) + "/" +
+//                              (holiday.holiday.date.datetime.day > 9 ? "" : "0") +
+//                                    String(holiday.holiday.date.datetime.day))
+                        
+                        
+                        if (((holiday.holiday.date.datetime.month > 9 ? "" : "0") +
+                            String(holiday.holiday.date.datetime.month) + "/" +
+                            (holiday.holiday.date.datetime.day > 9 ? "" : "0") +
+                            String(holiday.holiday.date.datetime.day)) == dateString) {
+                            self.actualHoliday = holiday;
+                            
+                            break;
+                        }
                     }
+
+                    
+                    print(self.actualHoliday)
+                    
+                    
                 }
             } catch {
                 print(error)
@@ -78,7 +106,7 @@ class HolidaysDAO: ObservableObject {
         }
         taskGetHolidays.resume()
         
-        guard let url = URL(string: "https://calendarific.com/api/v2/countries?&api_key=IBhJ1QUdouyN8NqqLsVUSqW8OReU3xxP") else {
+        guard let url = URL(string: "https://calendarific.com/api/v2/countries?&api_key=s2gG9HyYCP7wM2AcgzU3T2dcKMVWqooI") else {
             print("url invalida");
             return;
         }
@@ -94,10 +122,6 @@ class HolidaysDAO: ObservableObject {
                 let resposta1 = try JSONDecoder().decode(RespostaCountries.self, from: data)
                 DispatchQueue.main.async {
                     self.countries = resposta1.response.countries
-                    for i in self.countries {
-                        print(i)
-                    }
-                    
 
                 }
             } catch {
