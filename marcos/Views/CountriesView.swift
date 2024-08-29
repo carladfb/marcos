@@ -31,6 +31,7 @@ struct CountriesView: View {
                             .font(.largeTitle)
                             .foregroundColor(Color.black)
                             .multilineTextAlignment(.center)
+                            .padding(.trailing, -40.0)
                                 Spacer()
                                 
                                 Button(action: {
