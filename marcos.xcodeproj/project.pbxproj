@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		791DE4922C7E47E0000D8BB9 /* HolidaysDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791DE4912C7E47E0000D8BB9 /* HolidaysDAO.swift */; };
 		792BA3AE2C7F97650050D3D3 /* ChartHolidaysPerMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792BA3AD2C7F97650050D3D3 /* ChartHolidaysPerMonthView.swift */; };
+		796133D02C80FDC400844512 /* HolidayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796133CF2C80FDC400844512 /* HolidayView.swift */; };
 		796ED1E12C7CFD690059EBA4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ED1E02C7CFD690059EBA4 /* HomeView.swift */; };
 		796ED1E32C7CFD750059EBA4 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ED1E22C7CFD750059EBA4 /* ChartsView.swift */; };
 		796ED1E52C7CFD810059EBA4 /* CountriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ED1E42C7CFD810059EBA4 /* CountriesView.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		791DE4912C7E47E0000D8BB9 /* HolidaysDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysDAO.swift; sourceTree = "<group>"; };
 		792BA3AD2C7F97650050D3D3 /* ChartHolidaysPerMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHolidaysPerMonthView.swift; sourceTree = "<group>"; };
+		796133CF2C80FDC400844512 /* HolidayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayView.swift; sourceTree = "<group>"; };
 		796ED1E02C7CFD690059EBA4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		796ED1E22C7CFD750059EBA4 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
 		796ED1E42C7CFD810059EBA4 /* CountriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesView.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				7F2E86F62C7E6CBC0041CCD4 /* InThisDayView.swift */,
 				7F2E86F82C7E75930041CCD4 /* todayDate.swift */,
 				7F2527752C7F9C0C00F352EA /* ButtonCountries.swift */,
+				796133CF2C80FDC400844512 /* HolidayView.swift */,
 			);
 			path = marcos;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				796ED1E12C7CFD690059EBA4 /* HomeView.swift in Sources */,
+				796133D02C80FDC400844512 /* HolidayView.swift in Sources */,
 				7F2E86F92C7E75930041CCD4 /* todayDate.swift in Sources */,
 				7F1490922C7CFA6200E4BD63 /* ContentView.swift in Sources */,
 				7F1490902C7CFA6200E4BD63 /* marcosApp.swift in Sources */,

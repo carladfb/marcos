@@ -10,7 +10,7 @@ import SwiftUI
 
 class HolidaysDAO: ObservableObject {
     
-   // @Published var holidays: [Holiday] = [];
+    // @Published var holidays: [Holiday] = [];
     @Published var holidayWithStyle: [HolidayWithStyle] = []
     @Published var actualHoliday: HolidayWithStyle?
     @Published var actualCountry: Country?
@@ -29,11 +29,45 @@ class HolidaysDAO: ObservableObject {
         HolidayChart("Dec")
     ];
     @Published var countries: [Country] = [];
+    var holidaysStyles: [HolidayStyle] = [];
+    
+    
+    
     
     init() {
         
         let currentCountry = "BR"
+
+        fetchDays()
         fetchHolydays(country: currentCountry)
+        
+    }
+    
+    func fetchDays() {
+        
+        guard let url = URL(string: "https://calendarific.com/api/v2/countries?&api_key=s2gG9HyYCP7wM2AcgzU3T2dcKMVWqooI") else {
+            print("url invalida");
+            return;
+        }
+        
+        let taskGetCountries = URLSession.shared.dataTask(with: url) {
+            data, _, error in
+            guard let data = data, error == nil else {
+                print("DADO INVALIDA")
+                return;
+            }
+            
+            do {
+                let resposta1 = try JSONDecoder().decode(RespostaCountries.self, from: data)
+                DispatchQueue.main.async {
+                    self.countries = resposta1.response.countries
+
+                }
+            } catch {
+                print(error)
+            }
+        }
+        taskGetCountries.resume()
         
     }
     
@@ -44,11 +78,21 @@ class HolidaysDAO: ObservableObject {
         formatter.dateFormat = "yyyy"
         let dateString = formatter.string(from: today)
         self.actualCountry = nil;
+        
         for countryI in self.countries {
-            if (country == countryI.iso3166) {
+            print(countryI.iso3166.uppercased())
+            if (country == countryI.iso3166.uppercased()) {
                 self.actualCountry = countryI
+                break;
             }
         }
+        
+        holidaysStyles = [
+            HolidayStyle(["national", "local"], Color.verdinClaro, self.actualCountry?.flag_unicode ?? "🚩"),
+            HolidayStyle(["observance", "season"], Color.vermeiTchan, "🤍"),
+            HolidayStyle(["worldwide"], Color.azulzinclaro, "🌎"),
+            HolidayStyle(["christian", "orthodox", "hinduis", "hebrew", "muslim"], Color.amareloClarin, "👏")
+        ]
         
         
         guard let url = URL(string: "https://calendarific.com/api/v2/holidays?&api_key=s2gG9HyYCP7wM2AcgzU3T2dcKMVWqooI&country=\(country)&year=\(dateString)") else {
@@ -72,14 +116,14 @@ class HolidaysDAO: ObservableObject {
                         self.holidayWithStyle.append(HolidayWithStyle(holiday: holiday,
                                                                       holidayStyle: self.getHolidaySytle(holidayName: holiday.type[0])))
                     }
-
+                    
                     for i in 0..<self.holidaysPerMonth.count {
                         self.holidaysPerMonth[i].numeroDeFeriados = 0;
                     }
                     for holiday in resposta.response.holidays {
                         self.holidaysPerMonth[holiday.date.datetime.month - 1].numeroDeFeriados += 1;
                     }
-                 
+                    
                     formatter.dateFormat = "MM/dd"
                     let dateString = formatter.string(from: today)
                     
@@ -88,22 +132,22 @@ class HolidaysDAO: ObservableObject {
                     self.actualHoliday = nil
                     
                     for holiday in self.holidayWithStyle {
-//                        print((holiday.holiday.date.datetime.month > 9 ? "" : "0") +
-//                              String(holiday.holiday.date.datetime.month) + "/" +
-//                              (holiday.holiday.date.datetime.day > 9 ? "" : "0") +
-//                                    String(holiday.holiday.date.datetime.day))
+                        //                        print((holiday.holiday.date.datetime.month > 9 ? "" : "0") +
+                        //                              String(holiday.holiday.date.datetime.month) + "/" +
+                        //                              (holiday.holiday.date.datetime.day > 9 ? "" : "0") +
+                        //                                    String(holiday.holiday.date.datetime.day))
                         
                         
                         if (((holiday.holiday.date.datetime.month > 9 ? "" : "0") +
-                            String(holiday.holiday.date.datetime.month) + "/" +
-                            (holiday.holiday.date.datetime.day > 9 ? "" : "0") +
-                            String(holiday.holiday.date.datetime.day)) == dateString) {
+                             String(holiday.holiday.date.datetime.month) + "/" +
+                             (holiday.holiday.date.datetime.day > 9 ? "" : "0") +
+                             String(holiday.holiday.date.datetime.day)) == dateString) {
                             self.actualHoliday = holiday;
                             
                             break;
                         }
                     }
-
+                    
                     
                     print(self.actualHoliday)
                     
@@ -115,57 +159,28 @@ class HolidaysDAO: ObservableObject {
         }
         taskGetHolidays.resume()
         
-        guard let url = URL(string: "https://calendarific.com/api/v2/countries?&api_key=s2gG9HyYCP7wM2AcgzU3T2dcKMVWqooI") else {
-            print("url invalida");
-            return;
-        }
-        
-        let taskGetCountries = URLSession.shared.dataTask(with: url) {
-            data, _, error in
-            guard let data = data, error == nil else {
-                print("DADO INVALIDA")
-                return;
-            }
-            
-            do {
-                let resposta1 = try JSONDecoder().decode(RespostaCountries.self, from: data)
-                DispatchQueue.main.async {
-                    self.countries = resposta1.response.countries
-                    
-                    
 
-                }
-            } catch {
-                print(error)
-            }
-        }
-        taskGetCountries.resume()
     }
     
     func getHolidaySytle(holidayName: String) -> HolidayStyle {
         
         for holidayStyle in holidaysStyles {
             for name in holidayStyle.nomes {
-                    if (holidayName.lowercased().contains(name.lowercased())) {
+                if (holidayName.lowercased().contains(name.lowercased())) {
                     return holidayStyle;
                 }
             }
         }
         
-        return HolidayStyle(["national", "local"], Color.verdinClaro, "🏳️");
+        return HolidayStyle(["national", "local"], Color.verdinClaro, actualCountry!.flag_unicode);
         
         
     }
+    
+    
 }
 
-let holidaysStyles: [HolidayStyle] = [
-    HolidayStyle(["national", "local"], Color.verdinClaro, "🏳️"),
-    HolidayStyle(["observance", "season"], Color.vermeiTchan, "🤍"),
-    HolidayStyle(["worldwide"], Color.azulzinclaro, "🌎"),
-    HolidayStyle(["christian", "orthodox", "hinduis", "hebrew", "muslim"], Color.amareloClarin, "👏")
 
-
-]
 
 struct HolidayStyle: Hashable {
     
@@ -175,14 +190,16 @@ struct HolidayStyle: Hashable {
         self.emoji = emoji
     }
     
-
+    
     let nomes: [String];
     let cor: Color;
     let emoji: String;
     
-
+    
     
 }
+
+
 
 
 
