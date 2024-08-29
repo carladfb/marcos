@@ -11,52 +11,42 @@ struct CountriesView: View {
     
     @ObservedObject var holidaysDAO: HolidaysDAO
     
-//    @State private var searchCountry: [Country] = []
-//    @State private var searchTerm = ""
+
+    @State private var searchTerm = ""
     @State var countryName:String = ""
-    
-    
-/*
     var filteredCountry: [Country] {
-     //   guard !searchTerm.isEmpty else {return searchCountry}
-     //   return searchCountry.filter{ $0.country_name.localizedCaseInsensitiveContains(searchTerm) }
-        if searchTerm.isEmpty {
-            return HolidaysDAO.country
-                } else {
-                    return names.filter { $0.contains(searchText) }
-                }
-        
+        guard !searchTerm.isEmpty else { return holidaysDAO.countries }
+        return holidaysDAO.countries.filter {$0.country_name.localizedStandardContains(searchTerm)}
     }
-    */
+    
     
     let columns = Array (repeating: GridItem(.flexible()), count: 3)
     var body: some View {
         VStack {
             HStack {
-
-
-                    Button(action: {
-                        
-                    }, label: {
-                    Image(systemName: "xmark")
-                        .foregroundColor(.red)
-
-
-                })
-                .padding(.leading, -100)
-                
-                Text("Countries")
-                    .font(.largeTitle)
-                    .foregroundColor(Color.black)
-                    .multilineTextAlignment(.center)
-                    .frame(alignment: .center)
-                
-            }
+            
+                Spacer()
+                                
+                    Text("Countries")
+                            .font(.largeTitle)
+                            .foregroundColor(Color.black)
+                            .multilineTextAlignment(.center)
+                                Spacer()
+                                
+                                Button(action: {
+                                }, label: {
+                                    Image(systemName: "xmark")
+                                        .foregroundColor(.red)
+                                })
+                                .padding()
+                            }
+                            .padding()
+            
             
             NavigationStack{
                 ScrollView{
                     LazyVGrid(columns: columns){
-                        ForEach(holidaysDAO.countries, id: \.self) { count in
+                        ForEach(filteredCountry, id: \.self) { count in
                             Button(action: {
                                 holidaysDAO.fetchHolydays(country: count.iso3166)
                             }, label: {
@@ -65,6 +55,7 @@ struct CountriesView: View {
                                         .font(.system(size: 100))
                                     Text(String(count.country_name))
                                         .foregroundColor(.black)
+                                    Spacer()
                                 }
                             })
                         }
@@ -72,8 +63,9 @@ struct CountriesView: View {
                     }
                 }
                 .padding()
-                //.searchable(text: $searchTerm, prompt: "Search Country")
+                .searchable(text: $searchTerm, prompt: "Search Country")
             }
+            .padding()
             .searchable(text: $countryName)
         }
     }
