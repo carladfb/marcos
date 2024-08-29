@@ -55,7 +55,7 @@ struct ChartsView: View {
                                 .fontWeight(.bold)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             
-                            ButtonCountries(holidaysDAO: HolidaysDAO())
+                            ButtonCountries(holidaysDAO: holidaysDAO)
                         }
                         .padding(.top)
                         .frame(maxWidth: .infinity)

@@ -121,10 +121,10 @@ class HolidaysDAO: ObservableObject {
 }
 
 let holidaysStyles: [HolidayStyle] = [
-    HolidayStyle(["national", "local"], Color.verdinClaro, "🥶"),
-    HolidayStyle(["observance", "season"], Color.red, "🧑‍🚀"),
-    HolidayStyle(["worldwide"], Color.blue, "🤬"),
-    HolidayStyle(["christian", "orthodox", "hinduis", "hebrew", "muslim"], Color.yellow, "🫠")
+    HolidayStyle(["national", "local"], Color.verdinClaro, "💘"),
+    HolidayStyle(["observance", "season"], Color.red, "🤍"),
+    HolidayStyle(["worldwide"], Color.blue, "🌎"),
+    HolidayStyle(["christian", "orthodox", "hinduis", "hebrew", "muslim"], Color.yellow, "👏")
 
 
 ]

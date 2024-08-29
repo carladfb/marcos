@@ -58,7 +58,7 @@ struct CountriesView: View {
                     LazyVGrid(columns: columns){
                         ForEach(holidaysDAO.countries, id: \.self) { count in
                             Button(action: {
-                                print(count)
+                                holidaysDAO.fetchHolydays(country: count.iso3166)
                             }, label: {
                                 VStack (spacing: -20){
                                     Text(String(count.flag_unicode))
