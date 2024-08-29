@@ -25,7 +25,7 @@
 		7F2527762C7F9C0C00F352EA /* ButtonCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2527752C7F9C0C00F352EA /* ButtonCountries.swift */; };
 		7F2E86F52C7E6B400041CCD4 /* InThisDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E86F42C7E6B400041CCD4 /* InThisDayViewModel.swift */; };
 		7F2E86F72C7E6CBC0041CCD4 /* InThisDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E86F62C7E6CBC0041CCD4 /* InThisDayView.swift */; };
-		7F2E86F92C7E75930041CCD4 /* todayDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E86F82C7E75930041CCD4 /* todayDate.swift */; };
+		7F2E86F92C7E75930041CCD4 /* TodayDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E86F82C7E75930041CCD4 /* TodayDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +68,7 @@
 		7F2527752C7F9C0C00F352EA /* ButtonCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCountries.swift; sourceTree = "<group>"; };
 		7F2E86F42C7E6B400041CCD4 /* InThisDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InThisDayViewModel.swift; sourceTree = "<group>"; };
 		7F2E86F62C7E6CBC0041CCD4 /* InThisDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InThisDayView.swift; sourceTree = "<group>"; };
-		7F2E86F82C7E75930041CCD4 /* todayDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todayDate.swift; sourceTree = "<group>"; };
+		7F2E86F82C7E75930041CCD4 /* TodayDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +140,7 @@
 				791DE4912C7E47E0000D8BB9 /* HolidaysDAO.swift */,
 				7F2E86F42C7E6B400041CCD4 /* InThisDayViewModel.swift */,
 				7F2E86F62C7E6CBC0041CCD4 /* InThisDayView.swift */,
-				7F2E86F82C7E75930041CCD4 /* todayDate.swift */,
+				7F2E86F82C7E75930041CCD4 /* TodayDate.swift */,
 				7F2527752C7F9C0C00F352EA /* ButtonCountries.swift */,
 				796133CF2C80FDC400844512 /* HolidayView.swift */,
 				796133D12C81059500844512 /* SearchBar.swift */,
@@ -305,7 +305,7 @@
 			files = (
 				796ED1E12C7CFD690059EBA4 /* HomeView.swift in Sources */,
 				796133D02C80FDC400844512 /* HolidayView.swift in Sources */,
-				7F2E86F92C7E75930041CCD4 /* todayDate.swift in Sources */,
+				7F2E86F92C7E75930041CCD4 /* TodayDate.swift in Sources */,
 				7F1490922C7CFA6200E4BD63 /* ContentView.swift in Sources */,
 				7F1490902C7CFA6200E4BD63 /* marcosApp.swift in Sources */,
 				7F2527762C7F9C0C00F352EA /* ButtonCountries.swift in Sources */,

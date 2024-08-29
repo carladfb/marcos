@@ -17,9 +17,12 @@ struct ButtonCountries: View {
         }) {
             HStack(spacing: 4) {
                 Text(holidaysDAO.actualCountry?.flag_unicode ?? "🏳️")
-                    .frame(width: 20, height: 20)
+                    .frame(width: 26, height: 20)
+                    .font(.title)
                 Text(holidaysDAO.actualCountry?.iso3166 ?? "BR")
                     .foregroundColor(.black)
+                    .font(.title3)
+                    .bold()
                 Image(systemName: "chevron.down")
                     .foregroundColor(.vermeiTchan)
             }
@@ -30,6 +33,9 @@ struct ButtonCountries: View {
         }
         .sheet(isPresented: $isSheetPresented) {
             CountriesView(holidaysDAO: holidaysDAO)
+                .presentationDetents([.large])
+                .presentationDragIndicator(.hidden)
+                .presentationCornerRadius(40)
         }
     }
 }
