@@ -40,7 +40,7 @@ struct ChartsView: View {
                         }
                         .padding(8)
                         .background(
-                            Capsule().fill(Color.white)
+                            RoundedRectangle(cornerRadius: 20).fill(Color.white)
                         )
                     } else {
                         Text("nao restam mais feriados")

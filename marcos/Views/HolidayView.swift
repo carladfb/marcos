@@ -41,8 +41,8 @@ struct HolidayView: View {
                     .foregroundColor(Color.black)
                     .opacity(0.4)
             }
-            .padding(.vertical, 8)
-            .padding(.leading, 4)
+            .padding(.vertical, 6)
+            .padding(.leading, 6)
             .padding(.trailing, 12)
             .frame(maxWidth: .infinity)
             .background(
