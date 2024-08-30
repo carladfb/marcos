@@ -19,7 +19,7 @@ struct HolidayView: View {
                 print(holiday1.holiday.description)
                 print(holiday1.holiday.canonical_url)
             }
- 
+            
         }, label: {
             HStack {
                 Text(holiday?.holidayStyle.emoji ?? "😕")
@@ -37,9 +37,12 @@ struct HolidayView: View {
                 
                 Spacer()
                 
-                Image(systemName: "chevron.right")
-                    .foregroundColor(Color.black)
-                    .opacity(0.4)
+                if let _ = holiday{
+                    Image(systemName: "chevron.right")
+                        .foregroundColor(Color.black)
+                        .opacity(0.4)
+                }
+                
             }
             .padding(.vertical, 6)
             .padding(.leading, 6)

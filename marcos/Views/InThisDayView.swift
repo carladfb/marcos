@@ -18,7 +18,7 @@ struct InThisDayView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     HStack {
                         Text("Today in the past")
-                            .font(.title3)
+                            .font(.title3)  
                             .padding(.bottom, 5)
                         
                         Spacer()
@@ -56,7 +56,7 @@ struct InThisDayView: View {
                 .background(Color.white)
                 .cornerRadius(20)
             } else {
-                Text("Nenhum evento disponível")
+                Text("No event available")
                     .padding()
             }
         }
@@ -65,20 +65,6 @@ struct InThisDayView: View {
         }
         .padding(.horizontal, 30)
         .padding(.vertical, 15)
-    }
-}
-
-struct DashedLine: View {
-    var body: some View {
-        GeometryReader { geometry in
-            Path { path in
-                let width = geometry.size.width
-                path.move(to: CGPoint(x: 0, y: 0))
-                path.addLine(to: CGPoint(x: width, y: 0))
-            }
-            .stroke(style: StrokeStyle(lineWidth: 1, dash: [5, 3]))
-            .foregroundColor(.vermei)
-        }
     }
 }
 

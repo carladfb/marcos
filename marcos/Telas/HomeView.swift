@@ -20,8 +20,7 @@ struct HomeView: View {
                     HolidayView(holiday:
                                     holidaysDAO.actualHoliday
                     )
-                    
-//                        .background(Capsule().fill(holidaysDAO.actualHoliday?.holidayStyle.cor ?? Color.cinzinhaClaro))
+                    .padding(.horizontal, 30)
                     InThisDayView()
                 }
             }
