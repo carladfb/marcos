@@ -130,7 +130,8 @@ class HolidaysDAO: ObservableObject {
                     let dateString = self.formatter.string(from: self.today)
                     
                     
-                    
+                    self.recentsHolidays.removeAll()
+                    self.pastHolidays.removeAll()
                     self.actualHoliday = nil
                     
                     for holiday in self.holidayWithStyle {

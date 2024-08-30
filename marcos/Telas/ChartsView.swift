@@ -30,12 +30,13 @@ struct ChartsView: View {
                 ScrollView {
                     
                     
-                    VStack {
+                    VStack (spacing: 7){
                         
                         HStack {
                             Text("Next Special Day")
                             Spacer()
                         }
+                        .padding(.top, 12)
                         
                         if let holiday = holidaysDAO.recentsHolidays[0] {
                             HStack {
@@ -60,6 +61,7 @@ struct ChartsView: View {
                             Text("This Month")
                             Spacer()
                         }
+                        .padding(.top, 12)
                         
                         ForEach(1..<4) { i in
                             
@@ -83,6 +85,8 @@ struct ChartsView: View {
                             Text("Special Day per Month")
                             Spacer()
                         }
+                        .padding(.top, 12)
+                        
                         ChartHolidaysPerMonthView(holidays: holidaysDAO.holidaysPerMonth, month: dateFormatter.string(from: Foundation.Date()))
                     }
                     
