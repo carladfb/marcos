@@ -12,6 +12,10 @@ struct HolidayButtonView: View {
     
     var body: some View {
   
+        Button(action: {
+            print(holiday.holiday.description)
+            print(holiday.holiday.canonical_url)
+        }, label: {
             HStack {
                 Text(holiday.holidayStyle.emoji)
                     .font(.caption)
@@ -39,6 +43,7 @@ struct HolidayButtonView: View {
                 Capsule()
                     .fill(holiday.holidayStyle.cor)
             )
+        })
         
     }
 }

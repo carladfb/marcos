@@ -10,6 +10,7 @@ import SwiftUI
 
 class HolidaysDAO: ObservableObject {
     
+    @Published var isLoading = true;
     @Published var holidayWithStyle: [HolidayWithStyle] = []
     @Published var actualHoliday: HolidayWithStyle?
     @Published var actualCountry: Country?
@@ -28,7 +29,7 @@ class HolidaysDAO: ObservableObject {
         HolidayChart("Dec")
     ];
     @Published var countries: [Country] = [];
-    @Published var recentsHolidays: [HolidayWithStyle] = []
+    @Published var recentsHolidays: [HolidayWithStyle?] = []
     @Published var pastHolidays: [HolidayWithStyle] = []
 
     let today = Foundation.Date()
@@ -75,7 +76,7 @@ class HolidaysDAO: ObservableObject {
     
     func fetchHolydays(country: String) {
         
-        
+        isLoading = true;
         formatter.dateFormat = "yyyy"
         let dateString = formatter.string(from: today)
         self.actualCountry = nil;
@@ -89,9 +90,9 @@ class HolidaysDAO: ObservableObject {
         }
         
         holidaysStyles = [
+            HolidayStyle(["worldwide"], Color.azulzinclaro, "🌎"),
             HolidayStyle(["national", "local"], Color.verdinClaro, self.actualCountry?.flag_unicode ?? "🚩"),
             HolidayStyle(["observance", "season"], Color.vermeiTchan, "🤍"),
-            HolidayStyle(["worldwide"], Color.azulzinclaro, "🌎"),
             HolidayStyle(["christian", "orthodox", "hinduis", "hebrew", "muslim"], Color.amareloClarin, "👏")
         ]
         
@@ -144,13 +145,6 @@ class HolidaysDAO: ObservableObject {
                         }
                     }
                     
-                    
-                    
-                    
-                    
-                    
-                    let recentsHolidays: [Holiday] = []
-                    
                     self.formatter.dateFormat = "MM"
                     let monthInt = Int(self.formatter.string(from: self.today))
                     self.formatter.dateFormat = "dd"
@@ -167,7 +161,7 @@ class HolidaysDAO: ObservableObject {
                     
                     print(self.pastHolidays)
                     
-                    
+                    self.isLoading = false;
                 }
             } catch {
                 print(error)

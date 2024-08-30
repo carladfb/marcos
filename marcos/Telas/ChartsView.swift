@@ -24,50 +24,82 @@ struct ChartsView: View {
     var body: some View {
         
         NavigationStack {
-            VStack {
-                
-                
-                ForEach(0..<3) { i in
+            
+            if !holidaysDAO.isLoading {
+                VStack {
                     
-                    
-                    HStack {
-                        DaysToView(date:
-                                    String(holidaysDAO.recentsHolidays[i].holiday.date.datetime.month)
-                        )
-                        HolidayButtonView(holiday: holidaysDAO.recentsHolidays[i])
-                    }
-                    .padding(10)
-                    .background(
-                        Capsule().fill(Color.white)
-                    )
-                    
-
-                }
-                
-                List {
-                    ForEach(holidaysDAO.holidayWithStyle, id: \.self) {
-                        holiday in
-                        HolidayView(holidayName: holiday.holiday.name, holidaySytle: holiday.holidayStyle)
-                    }
-                }
-                ChartHolidaysPerMonthView(holidays: holidaysDAO.holidaysPerMonth, month: dateFormatter.string(from: Foundation.Date()))
-                
-            }.padding()
-                .background(Color.fundinho)
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
+                    if let holiday = holidaysDAO.recentsHolidays[0] {
                         HStack {
-                            Text("Calendar")
-                                .font(.largeTitle)
-                                .fontWeight(.bold)
-                                .frame(maxWidth: .infinity, alignment: .leading)
                             
-                            ButtonCountries(holidaysDAO: holidaysDAO)
+                            DaysToView(date:
+                                        String(holiday.holiday.date.datetime.month) + " / " + String(holiday.holiday.date.datetime.day)
+                            )
+                            
+                            HolidayView(holiday: holiday)
+                            
                         }
-                        .padding(.top)
-                        .frame(maxWidth: .infinity)
+                        .padding(8)
+                        .background(
+                            Capsule().fill(Color.white)
+                        )
+                    } else {
+                        Text("nao restam mais feriados")
                     }
-                }
+                    
+                    
+                    
+                    ForEach(1..<4) { i in
+                        
+                        if let holiday = holidaysDAO.recentsHolidays[i] {
+                            HStack {
+                                DaysToView(date:
+                                            String(holiday.holiday.date.datetime.month) + " / " + String(holiday.holiday.date.datetime.day)
+                                )
+                                HolidayButtonView(holiday: holiday)
+                            }
+                            .padding(8)
+                            .background(
+                                Capsule().fill(Color.white)
+                            )
+                        }
+                        
+                        
+                        
+                        
+                    }
+                    
+                    List {
+                        ForEach(holidaysDAO.holidayWithStyle, id: \.self) {
+                            holiday in
+                            HolidayView(holiday: holiday)
+                        }
+                    }
+                    ChartHolidaysPerMonthView(holidays: holidaysDAO.holidaysPerMonth, month: dateFormatter.string(from: Foundation.Date()))
+                    
+                }.padding()
+                    .background(Color.fundinho)
+                    .toolbar {
+                        ToolbarItem(placement: .principal) {
+                            HStack {
+                                Text("Calendar")
+                                    .font(.largeTitle)
+                                    .fontWeight(.bold)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                
+                                ButtonCountries(holidaysDAO: holidaysDAO)
+                            }
+                            .padding(.top)
+                            .frame(maxWidth: .infinity)
+                        }
+                    }
+            } else {
+                ProgressView()
+                    .progressViewStyle(.circular)
+                    .accentColor(Color.vermeiTchan)
+                
+            }
+            
+            
             
         }
         

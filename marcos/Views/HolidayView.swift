@@ -9,34 +9,51 @@ import SwiftUI
 
 struct HolidayView: View {
     
-    let holidayName: String;
-    let holidaySytle: HolidayStyle;
+    let holiday: HolidayWithStyle?;
+    
     
     var body: some View {
-        HStack {
-            Text(holidaySytle.emoji)
-                .font(.body)
-                .padding(6)
-                .background(
-                    Circle()
-                        .fill(Color.black)
-                        .opacity(0.35)
-                )
-            Text(holidayName)
-                .foregroundColor(.white)
-                .font(.body)
-                .lineLimit(0)
-            
-            Spacer()
-        }
-        .padding(.vertical, 8)
-        .padding(.horizontal, 5)
-        .frame(maxWidth: .infinity)
-        .background(
-            Capsule()
-                .fill(holidaySytle.cor)
-        )
+        
+        Button(action: {
+            if let holiday1 = holiday {
+                print(holiday1.holiday.description)
+                print(holiday1.holiday.canonical_url)
+            }
+ 
+        }, label: {
+            HStack {
+                Text(holiday?.holidayStyle.emoji ?? "😕")
+                    .font(.body)
+                    .padding(6)
+                    .background(
+                        Circle()
+                            .fill(Color.black)
+                            .opacity(0.35)
+                    )
+                Text(holiday?.holiday.name ?? "Today is a normal day")
+                    .foregroundColor(.white)
+                    .font(.footnote)
+                    .lineLimit(0)
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                    .foregroundColor(Color.black)
+                    .opacity(0.4)
+            }
+            .padding(.vertical, 8)
+            .padding(.leading, 4)
+            .padding(.trailing, 12)
+            .frame(maxWidth: .infinity)
+            .background(
+                Capsule()
+                    .fill(holiday?.holidayStyle.cor ?? Color.cinzinhaClaro)
+            )
+        })
+        
     }
+    
+    
 }
 
 

@@ -16,7 +16,7 @@ struct DaysToView: View {
             .font(.footnote)
             .padding(.vertical, 6)
             .padding(.horizontal, 5)
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: 120)
             .background(
                 Capsule()
                     .fill(Color.fundinho)
