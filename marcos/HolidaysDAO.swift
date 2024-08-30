@@ -32,7 +32,7 @@ class HolidaysDAO: ObservableObject {
     @Published var recentsHolidays: [HolidayWithStyle?] = []
     @Published var pastHolidays: [HolidayWithStyle] = []
     @Published var progressHolidays: CGFloat = 0;
-
+    
     let today = Foundation.Date()
     let formatter = DateFormatter()
     var holidaysStyles: [HolidayStyle] = [];
@@ -65,7 +65,7 @@ class HolidaysDAO: ObservableObject {
                 DispatchQueue.main.async {
                     self.countries = resposta1.response.countries
                     self.fetchHolydays(country: currentCountry)
-
+                    
                 }
             } catch {
                 print(error)
@@ -83,7 +83,6 @@ class HolidaysDAO: ObservableObject {
         self.actualCountry = nil;
         
         for countryI in self.countries {
-            print(countryI.iso3166.uppercased())
             if (country == countryI.iso3166.uppercased()) {
                 self.actualCountry = countryI
                 break;
@@ -136,7 +135,7 @@ class HolidaysDAO: ObservableObject {
                     self.actualHoliday = nil
                     
                     for holiday in self.holidayWithStyle {
-
+                        
                         if (((holiday.holiday.date.datetime.month > 9 ? "" : "0") +
                              String(holiday.holiday.date.datetime.month) + "/" +
                              (holiday.holiday.date.datetime.day > 9 ? "" : "0") +
@@ -152,13 +151,19 @@ class HolidaysDAO: ObservableObject {
                     self.formatter.dateFormat = "dd"
                     let dayInt = Int(self.formatter.string(from: self.today))
                     for holiday in self.holidayWithStyle {
+                        
+                        print("mes atual = ", monthInt, " dia atual = ", dayInt, " dia feriado ", holiday.holiday.date.datetime.day, " mes feriado ",
+                              holiday.holiday.date.datetime.month, " resultado ", (Int(holiday.holiday.date.datetime.month) > monthInt! ||
+                                                                                   (Int(holiday.holiday.date.datetime.month) == monthInt! && Int(holiday.holiday.date.datetime.day) >= dayInt!)))
+                        
                         if (Int(holiday.holiday.date.datetime.month) > monthInt! ||
                             (Int(holiday.holiday.date.datetime.month) == monthInt! && Int(holiday.holiday.date.datetime.day) >= dayInt!)) {
-                            self.recentsHolidays.append(holiday)
-                        } else {
                             self.pastHolidays.append(holiday)
+                        } else {
+                            
+                            self.recentsHolidays.append(holiday)
                         }
-
+                        
                     }
                     
                     self.progressHolidays = CGFloat((self.recentsHolidays.count / self.holidayWithStyle.count) * 100)
@@ -170,7 +175,7 @@ class HolidaysDAO: ObservableObject {
         }
         taskGetHolidays.resume()
         
-
+        
     }
     
     func getHolidaySytle(holidayName: String) -> HolidayStyle {
