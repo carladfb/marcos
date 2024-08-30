@@ -18,7 +18,9 @@ struct HomeView: View {
                 VStack {
                     TodayDateView()
                     HolidayView(holiday:
-                                    holidaysDAO.actualHoliday
+                                    holidaysDAO.actualHoliday,
+                                space: 6
+                                
                     )
                     .padding(.horizontal, 30)
                     InThisDayView()

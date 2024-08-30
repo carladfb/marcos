@@ -18,80 +18,92 @@ struct ChartsView: View {
         self.dateFormatter = DateFormatter()
         self.dateFormatter.dateFormat = "MMMM"
         self.holidaysDAO = holidaysDAO;
-        print(dateFormatter.string(from: Foundation.Date()))
+        
+        
     }
+
     
     var body: some View {
         
         NavigationStack {
-            
             if !holidaysDAO.isLoading {
-                VStack {
+                ScrollView {
                     
-                    if let holiday = holidaysDAO.recentsHolidays[0] {
+                    
+                    VStack {
+                        
                         HStack {
-                            
-                            DaysToView(date:
-                                        String(holiday.holiday.date.datetime.month) + " / " + String(holiday.holiday.date.datetime.day)
-                            )
-                            
-                            HolidayView(holiday: holiday)
-                            
+                            Text("Next Special Day")
+                            Spacer()
                         }
-                        .padding(8)
-                        .background(
-                            RoundedRectangle(cornerRadius: 20).fill(Color.white)
-                        )
-                    } else {
-                        Text("nao restam mais feriados")
-                    }
-                    
-                    
-                    
-                    ForEach(1..<4) { i in
                         
-                        if let holiday = holidaysDAO.recentsHolidays[i] {
+                        if let holiday = holidaysDAO.recentsHolidays[0] {
                             HStack {
-                                DaysToView(date:
-                                            String(holiday.holiday.date.datetime.month) + " / " + String(holiday.holiday.date.datetime.day)
+                                
+                                DaysToViewRectangle(date:
+                                                        String(holiday.holiday.date.datetime.month) + " / " + String(holiday.holiday.date.datetime.day),
+                                                    space: 8
                                 )
-                                HolidayButtonView(holiday: holiday)
+                                
+                                HolidayView(holiday: holiday, space: 4)
+                                
                             }
-                            .padding(8)
+                            .padding(9)
                             .background(
-                                Capsule().fill(Color.white)
+                                RoundedRectangle(cornerRadius: 20).fill(Color.white)
                             )
+                        } else {
+                            Text("No Special Day in this year")
                         }
                         
-                        
-                        
-                        
-                    }
-                    
-                    List {
-                        ForEach(holidaysDAO.holidayWithStyle, id: \.self) {
-                            holiday in
-                            HolidayView(holiday: holiday)
+                        HStack {
+                            Text("This Month")
+                            Spacer()
                         }
+                        
+                        ForEach(1..<4) { i in
+                            
+                            if let holiday = holidaysDAO.recentsHolidays[i] {
+                                HStack {
+                                    DaysToView(date:
+                                                String(holiday.holiday.date.datetime.month) + " / " + String(holiday.holiday.date.datetime.day),
+                                               space: 6
+                                    )
+                                    HolidayButtonView(holiday: holiday)
+                                }
+                                .padding(9)
+                                .background(
+                                    Capsule().fill(Color.white)
+                                )
+                            }
+                            
+                        }
+                        
+                        HStack {
+                            Text("Special Day per Month")
+                            Spacer()
+                        }
+                        ChartHolidaysPerMonthView(holidays: holidaysDAO.holidaysPerMonth, month: dateFormatter.string(from: Foundation.Date()))
                     }
-                    ChartHolidaysPerMonthView(holidays: holidaysDAO.holidaysPerMonth, month: dateFormatter.string(from: Foundation.Date()))
                     
-                }.padding()
+                }.padding(.horizontal, 30)
                     .background(Color.fundinho)
                     .toolbar {
                         ToolbarItem(placement: .principal) {
                             HStack {
-                                Text("Calendar")
+                                Text("Charts")
                                     .font(.largeTitle)
                                     .fontWeight(.bold)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 
                                 ButtonCountries(holidaysDAO: holidaysDAO)
                             }
-                            .padding(.top)
+                            .padding(.vertical)
                             .frame(maxWidth: .infinity)
                         }
                     }
+                    .toolbarBackground(.bar, for: .navigationBar)
+                    .toolbarBackground(Color.fundinho, for: .navigationBar)
             } else {
                 ProgressView()
                     .progressViewStyle(.circular)

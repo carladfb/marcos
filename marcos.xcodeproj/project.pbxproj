@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		790055D82C82567A00EB7686 /* DaysToViewRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790055D72C82567A00EB7686 /* DaysToViewRectangle.swift */; };
 		791DE4922C7E47E0000D8BB9 /* HolidaysDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791DE4912C7E47E0000D8BB9 /* HolidaysDAO.swift */; };
 		792BA3AE2C7F97650050D3D3 /* ChartHolidaysPerMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792BA3AD2C7F97650050D3D3 /* ChartHolidaysPerMonthView.swift */; };
 		796133D02C80FDC400844512 /* HolidayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796133CF2C80FDC400844512 /* HolidayView.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		790055D72C82567A00EB7686 /* DaysToViewRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysToViewRectangle.swift; sourceTree = "<group>"; };
 		791DE4912C7E47E0000D8BB9 /* HolidaysDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysDAO.swift; sourceTree = "<group>"; };
 		792BA3AD2C7F97650050D3D3 /* ChartHolidaysPerMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHolidaysPerMonthView.swift; sourceTree = "<group>"; };
 		796133CF2C80FDC400844512 /* HolidayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayView.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				797C00082C812CA500EFC77A /* DaysToView.swift */,
 				7F9C9B5A2C82416A00E88A38 /* SheetHolidaysView.swift */,
 				7F9C9B5C2C824BD800E88A38 /* DashedLine.swift */,
+				790055D72C82567A00EB7686 /* DaysToViewRectangle.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				792BA3AE2C7F97650050D3D3 /* ChartHolidaysPerMonthView.swift in Sources */,
 				796ED1E52C7CFD810059EBA4 /* CountriesView.swift in Sources */,
 				791DE4922C7E47E0000D8BB9 /* HolidaysDAO.swift in Sources */,
+				790055D82C82567A00EB7686 /* DaysToViewRectangle.swift in Sources */,
 				7F2E86F72C7E6CBC0041CCD4 /* InThisDayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

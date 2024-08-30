@@ -10,6 +10,8 @@ import SwiftUI
 struct HolidayView: View {
     
     let holiday: HolidayWithStyle?;
+    let space: Int;
+    
     
     
     var body: some View {
@@ -44,7 +46,7 @@ struct HolidayView: View {
                 }
                 
             }
-            .padding(.vertical, 6)
+            .padding(.vertical, CGFloat(space))
             .padding(.leading, 6)
             .padding(.trailing, 12)
             .frame(maxWidth: .infinity)

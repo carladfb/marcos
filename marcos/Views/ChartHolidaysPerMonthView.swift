@@ -38,9 +38,9 @@ struct ChartHolidaysPerMonthView: View {
         }
         .chartLegend(position: .bottom, alignment: .top, spacing: 16)
         .chartScrollableAxes(.horizontal)
-        .chartXVisibleDomain(length: 6)
+        .chartXVisibleDomain(length: 7)
         .padding(.vertical)
-        .frame(height: 200)
+        .frame(height: 250)
     }
 }
 
