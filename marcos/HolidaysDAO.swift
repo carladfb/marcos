@@ -32,6 +32,9 @@ class HolidaysDAO: ObservableObject {
     @Published var recentsHolidays: [HolidayWithStyle?] = []
     @Published var pastHolidays: [HolidayWithStyle] = []
     @Published var progressHolidays: CGFloat = 0;
+    @Published var progressYear: CGFloat = 0;
+    @Published var daysInThisYear: Int = 0;
+    @Published var pastDays: Int = 0;
     
     let today = Foundation.Date()
     let formatter = DateFormatter()
@@ -152,21 +155,21 @@ class HolidaysDAO: ObservableObject {
                     let dayInt = Int(self.formatter.string(from: self.today))
                     for holiday in self.holidayWithStyle {
                         
-                        print("mes atual = ", monthInt, " dia atual = ", dayInt, " dia feriado ", holiday.holiday.date.datetime.day, " mes feriado ",
-                              holiday.holiday.date.datetime.month, " resultado ", (Int(holiday.holiday.date.datetime.month) > monthInt! ||
-                                                                                   (Int(holiday.holiday.date.datetime.month) == monthInt! && Int(holiday.holiday.date.datetime.day) >= dayInt!)))
-                        
                         if (Int(holiday.holiday.date.datetime.month) > monthInt! ||
                             (Int(holiday.holiday.date.datetime.month) == monthInt! && Int(holiday.holiday.date.datetime.day) >= dayInt!)) {
                             self.pastHolidays.append(holiday)
                         } else {
-                            
                             self.recentsHolidays.append(holiday)
                         }
                         
                     }
                     
-                    self.progressHolidays = CGFloat((self.recentsHolidays.count / self.holidayWithStyle.count) * 100)
+                    self.formatter.dateFormat = "yyyy"
+                    let ano = Int(self.formatter.string(from: self.today))
+                    self.daysInThisYear = ano! % 4 == 0 ? 366 : 355;
+                    self.pastDays = self.diasPassadosNoAno()!
+                    self.progressYear = CGFloat(Float(self.pastDays) / Float(self.daysInThisYear))
+                    self.progressHolidays = CGFloat(Float(self.recentsHolidays.count) / Float(self.holidayWithStyle.count))
                     self.isLoading = false;
                 }
             } catch {
@@ -176,6 +179,29 @@ class HolidaysDAO: ObservableObject {
         taskGetHolidays.resume()
         
         
+    }
+    
+    func diasPassadosNoAno() -> Int? {
+        let calendario = Calendar.current
+        let dataAtual = today
+        
+        // Obtém o componente do ano da data atual
+        let anoAtual = calendario.component(.year, from: dataAtual)
+        
+        // Cria uma data para o primeiro dia do ano atual
+        var componentes = DateComponents()
+        componentes.year = anoAtual
+        componentes.month = 1
+        componentes.day = 1
+        guard let primeiroDiaDoAno = calendario.date(from: componentes) else {
+            return nil
+        }
+        
+        // Calcula a diferença em dias entre a data atual e o primeiro dia do ano
+        let diferenca = calendario.dateComponents([.day], from: primeiroDiaDoAno, to: dataAtual)
+        
+        // O resultado é o número de dias que já se passaram, adicionando 1 para incluir o primeiro dia
+        return (diferenca.day ?? 0) + 1
     }
     
     func getHolidaySytle(holidayName: String) -> HolidayStyle {

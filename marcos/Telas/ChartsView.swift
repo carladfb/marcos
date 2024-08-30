@@ -96,19 +96,28 @@ struct ChartsView: View {
                         }
                         .padding(.top, 16)
                         
-                        CustomProgressView(progress: holidaysDAO.progressHolidays, lineHeight: 20, holidaysDAO: holidaysDAO)
-                            .padding()
+                        CustomProgressView(progress: holidaysDAO.progressYear, lineHeight: 20, holidaysDAO: holidaysDAO,
+                                           final: holidaysDAO.daysInThisYear, numberProgress: holidaysDAO.pastDays)
+                        .padding()
+                        
+                        HStack {
+                            Text("Past special days:")
+                            Spacer()
+                        }
+                        
+                        CustomProgressView(progress: holidaysDAO.progressHolidays, lineHeight: 20, holidaysDAO: holidaysDAO,
+                                           final: holidaysDAO.holidayWithStyle.count, numberProgress: holidaysDAO.holidayWithStyle.count - holidaysDAO.pastHolidays.count)
+                        .padding()
                         
                         
                         
                         
                         
                         
-                    }
+                    }.padding(.horizontal, 30)
                     
                     
-                }.padding(.horizontal, 30)
-                    .background(Color.fundinho)
+                }.background(Color.fundinho)
                     .toolbar {
                         ToolbarItem(placement: .principal) {
                             HStack {
@@ -134,6 +143,8 @@ struct ChartsView: View {
             
             
             
+            
+            
         }
         
     }
@@ -142,6 +153,8 @@ struct ChartsView: View {
         var progress: Double
         var lineHeight: CGFloat = 20
         var holidaysDAO: HolidaysDAO;
+        let final: Int;
+        let numberProgress: Int;
         
         var body: some View {
             VStack {
@@ -149,7 +162,7 @@ struct ChartsView: View {
                 
                 HStack {
                     
-                    Text(String(holidaysDAO.holidayWithStyle.count - holidaysDAO.pastHolidays.count))
+                    Text(String(numberProgress))
                         .font(.system(size: 14, weight: .bold))
                         .foregroundColor(Color.vermeiTchan)
                     
@@ -174,7 +187,7 @@ struct ChartsView: View {
                     .frame(height: lineHeight)
                     .padding(.horizontal)
                     
-                    Text(String(holidaysDAO.holidayWithStyle.count))
+                    Text(String(final))
                         .font(.caption)
                     
                 }
@@ -187,9 +200,6 @@ struct ChartsView: View {
     
 }
 
-#Preview {
-    ChartsView(holidaysDAO: HolidaysDAO())
-}
 
 
 
