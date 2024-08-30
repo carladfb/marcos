@@ -21,7 +21,6 @@ struct ChartsView: View {
         
         
     }
-
     
     var body: some View {
         
@@ -36,7 +35,6 @@ struct ChartsView: View {
                             Text("Next Special Day")
                             Spacer()
                         }
-                        .padding(.top, 12)
                         
                         if let holiday = holidaysDAO.recentsHolidays[0] {
                             HStack {
@@ -61,7 +59,7 @@ struct ChartsView: View {
                             Text("This Month")
                             Spacer()
                         }
-                        .padding(.top, 12)
+                        .padding(.top, 16)
                         
                         ForEach(1..<4) { i in
                             
@@ -85,10 +83,29 @@ struct ChartsView: View {
                             Text("Special Day per Month")
                             Spacer()
                         }
-                        .padding(.top, 12)
+                        .padding(.top, 16)
                         
                         ChartHolidaysPerMonthView(holidays: holidaysDAO.holidaysPerMonth, month: dateFormatter.string(from: Foundation.Date()))
+                        
+                        
+                        
+                        
+                        HStack {
+                            Text("This Year ends in:")
+                            Spacer()
+                        }
+                        .padding(.top, 16)
+                        
+                        CustomProgressView(progress: holidaysDAO.progressHolidays, lineHeight: 20, holidaysDAO: holidaysDAO)
+                            .padding()
+                        
+                        
+                        
+                        
+                        
+                        
                     }
+                    
                     
                 }.padding(.horizontal, 30)
                     .background(Color.fundinho)
@@ -120,6 +137,54 @@ struct ChartsView: View {
         }
         
     }
+    
+    struct CustomProgressView: View {
+        var progress: Double
+        var lineHeight: CGFloat = 20
+        var holidaysDAO: HolidaysDAO;
+        
+        var body: some View {
+            VStack {
+                
+                
+                HStack {
+                    
+                    Text(String(holidaysDAO.holidayWithStyle.count - holidaysDAO.pastHolidays.count))
+                        .font(.system(size: 14, weight: .bold))
+                        .foregroundColor(Color.vermeiTchan)
+                    
+                }
+                
+                HStack (spacing: 0) {
+                    
+                    Text(String(0)).font(.caption)
+                    
+                    GeometryReader { geometry in
+                        ZStack(alignment: .leading) {
+                            RoundedRectangle(cornerRadius: lineHeight / 2)
+                                .fill(Color.gray.opacity(0.3))
+                                .frame(height: lineHeight)
+                            
+                            RoundedRectangle(cornerRadius: lineHeight / 2)
+                                .fill(Color.vermeiTchan)
+                                .frame(width: CGFloat(progress) * geometry.size.width, height: lineHeight)
+                                .animation(.easeInOut, value: progress)
+                        }
+                    }
+                    .frame(height: lineHeight)
+                    .padding(.horizontal)
+                    
+                    Text(String(holidaysDAO.holidayWithStyle.count))
+                        .font(.caption)
+                    
+                }
+                
+                
+            }
+        }
+    }
+    
+    
 }
 
 #Preview {
