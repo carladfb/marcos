@@ -80,10 +80,21 @@ struct ChartsView: View {
                         }
                         
                         HStack {
-                            Text("Special Day per Month")
+                            Text("Past special days")
                             Spacer()
                         }
                         .padding(.top, 16)
+                        
+                        CustomProgressView(progress: holidaysDAO.progressHolidays, lineHeight: 20, holidaysDAO: holidaysDAO,
+                                           final: holidaysDAO.holidayWithStyle.count, numberProgress: holidaysDAO.holidayWithStyle.count - holidaysDAO.recentsHolidays.count)
+                        .padding(.horizontal)
+                        
+                        
+                        HStack {
+                            Text("Special Day per Month")
+                            Spacer()
+                        }
+                        .padding(.top, 32)
                         
                         ChartHolidaysPerMonthView(holidays: holidaysDAO.holidaysPerMonth, month: dateFormatter.string(from: Foundation.Date()))
                         
@@ -91,23 +102,17 @@ struct ChartsView: View {
                         
                         
                         HStack {
-                            Text("This Year ends in:")
+                            Text("This Year ends in")
                             Spacer()
                         }
                         .padding(.top, 16)
                         
                         CustomProgressView(progress: holidaysDAO.progressYear, lineHeight: 20, holidaysDAO: holidaysDAO,
                                            final: holidaysDAO.daysInThisYear, numberProgress: holidaysDAO.pastDays)
-                        .padding()
+                        .padding(.horizontal)
+                        .padding(.bottom, 32)
                         
-                        HStack {
-                            Text("Past special days:")
-                            Spacer()
-                        }
-                        
-                        CustomProgressView(progress: holidaysDAO.progressHolidays, lineHeight: 20, holidaysDAO: holidaysDAO,
-                                           final: holidaysDAO.holidayWithStyle.count, numberProgress: holidaysDAO.holidayWithStyle.count - holidaysDAO.pastHolidays.count)
-                        .padding()
+
                         
                         
                         

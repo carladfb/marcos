@@ -157,9 +157,9 @@ class HolidaysDAO: ObservableObject {
                         
                         if (Int(holiday.holiday.date.datetime.month) > monthInt! ||
                             (Int(holiday.holiday.date.datetime.month) == monthInt! && Int(holiday.holiday.date.datetime.day) >= dayInt!)) {
-                            self.pastHolidays.append(holiday)
-                        } else {
                             self.recentsHolidays.append(holiday)
+                        } else {
+                            self.pastHolidays.append(holiday)
                         }
                         
                     }
@@ -169,8 +169,13 @@ class HolidaysDAO: ObservableObject {
                     self.daysInThisYear = ano! % 4 == 0 ? 366 : 355;
                     self.pastDays = self.diasPassadosNoAno()!
                     self.progressYear = CGFloat(Float(self.pastDays) / Float(self.daysInThisYear))
-                    self.progressHolidays = CGFloat(Float(self.recentsHolidays.count) / Float(self.holidayWithStyle.count))
+                    self.progressHolidays = CGFloat(Float(self.pastHolidays.count) / Float(self.holidayWithStyle.count))
                     self.isLoading = false;
+                    
+                    
+                    for i in self.recentsHolidays {
+                        print(i!)
+                    }
                 }
             } catch {
                 print(error)
@@ -185,10 +190,8 @@ class HolidaysDAO: ObservableObject {
         let calendario = Calendar.current
         let dataAtual = today
         
-        // Obtém o componente do ano da data atual
         let anoAtual = calendario.component(.year, from: dataAtual)
         
-        // Cria uma data para o primeiro dia do ano atual
         var componentes = DateComponents()
         componentes.year = anoAtual
         componentes.month = 1
@@ -197,10 +200,7 @@ class HolidaysDAO: ObservableObject {
             return nil
         }
         
-        // Calcula a diferença em dias entre a data atual e o primeiro dia do ano
         let diferenca = calendario.dateComponents([.day], from: primeiroDiaDoAno, to: dataAtual)
-        
-        // O resultado é o número de dias que já se passaram, adicionando 1 para incluir o primeiro dia
         return (diferenca.day ?? 0) + 1
     }
     
