@@ -56,22 +56,23 @@ struct TermsView: View {
                         }
                     }
                     .padding(.horizontal, 30)
-                    .padding(.top, -20)
+                    .padding(.top, -10)
                 }
                 .background(Color.fundinho)
-                    .toolbar {
-                        ToolbarItem(placement: .principal) {
-                            HStack {
-                                Text("Terms of Use")
-                                    .padding(.vertical)
-                                    .font(.title)
-                                    .fontWeight(.bold)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                            }
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        HStack {
+                            Text("Terms of Use")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .frame(maxWidth:
+                                        .infinity, alignment: .leading)
+                            
                         }
-                        
+                        .padding(.top)
+                        .frame(maxWidth: .infinity)
                     }
-
+                }
                     .toolbarBackground(.bar, for: .navigationBar)
                     .toolbarBackground(Color.fundinho, for: .navigationBar)
                 }

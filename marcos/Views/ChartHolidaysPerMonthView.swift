@@ -24,10 +24,11 @@ struct ChartHolidaysPerMonthView: View {
                     Color.vermei :
                         Color.rosinhaGrafico)
                 .annotation(position: .top, alignment: .center, spacing: CGFloat(5), content: {
-                    Text(String(Int(dado.numeroDeFeriados))).font(.caption2)
+                    Text(String(Int(dado.numeroDeFeriados)))
+                        .font(.caption)
                         .foregroundColor(month.prefix(3) == dado.monthName ?
                                          Color.vermei :
-                                           Color.black)
+                                           Color.pretin)
                 })
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 
@@ -38,9 +39,9 @@ struct ChartHolidaysPerMonthView: View {
         }
         .chartLegend(position: .bottom, alignment: .top, spacing: 16)
         .chartScrollableAxes(.horizontal)
-        .chartXVisibleDomain(length: 7)
+        .chartXVisibleDomain(length: 6)
         .padding(.vertical)
-        .frame(height: 250)
+        .frame(height: 230)
     }
 }
 

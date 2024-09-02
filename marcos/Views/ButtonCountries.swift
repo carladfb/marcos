@@ -26,7 +26,7 @@ struct ButtonCountries: View {
                 Image(systemName: "chevron.down")
                     .foregroundColor(.vermeiTchan)
             }
-            .padding(.vertical, 5)
+            .padding(.vertical, 6)
             .padding(.horizontal, 15)
             .background(Color.white)
             .cornerRadius(10)
@@ -37,6 +37,7 @@ struct ButtonCountries: View {
                 .presentationDragIndicator(.hidden)
                 .presentationCornerRadius(40)
         }
+        .background(Color.fundinho)
     }
 }
 

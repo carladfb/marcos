@@ -23,7 +23,7 @@ struct ContentView: View {
             HomeView(holidaysDAO: holidaysDAO).tabItem {
                 VStack {
                     Image(systemName: "house.fill")
-                    Text("Home")
+                    Text("Today")
                 }
             }
             ChartsView(holidaysDAO: holidaysDAO).tabItem {

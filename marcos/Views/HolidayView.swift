@@ -16,12 +16,14 @@ struct HolidayView: View {
     
     var body: some View {
         Button(action: {
-            showingSheet.toggle()
+            if holiday != nil {
+                showingSheet.toggle()
+            }
         }, label: {
             HStack {
                 Text(holiday?.holidayStyle.emoji ?? "😕")
-                    .font(.body)
-                    .padding(6)
+                    .font(.title2)
+                    .padding(8)
                     .background(
                         Circle()
                             .fill(Color.black)
@@ -29,7 +31,7 @@ struct HolidayView: View {
                     )
                 Text(holiday?.holiday.name ?? "Today is a normal day")
                     .foregroundColor(.white)
-                    .font(.footnote)
+                    .font(.body)
                     .lineLimit(1)
                 
                 Spacer()
@@ -41,7 +43,7 @@ struct HolidayView: View {
                 }
             }
             .padding(.vertical, CGFloat(space))
-            .padding(.leading, 6)
+            .padding(.leading, 7)
             .padding(.trailing, 12)
             .frame(maxWidth: .infinity)
             .background(

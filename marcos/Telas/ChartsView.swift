@@ -41,7 +41,7 @@ struct ChartsView: View {
                                 DaysToViewRectangle(date:
                                                         holidaysDAO.holidaysPerMonth[holiday.holiday.date.datetime.month - 1].monthName
                                                          + " / " + String(holiday.holiday.date.datetime.day),
-                                                    space: 8
+                                                    space: 16
                                 )
                                 
                                 HolidayView(holiday: holiday, space: 4)
@@ -49,14 +49,14 @@ struct ChartsView: View {
                             }
                             .padding(9)
                             .background(
-                                RoundedRectangle(cornerRadius: 20).fill(Color.white)
+                                RoundedRectangle(cornerRadius: 20).fill(Color.fundinho2)
                             )
                         } else {
                             Text("No Special Day in this year")
                         }
                         
                         
-                        Text("This Month")
+                        Text("Upcoming Dates")
                         
                         
                         
@@ -76,7 +76,7 @@ struct ChartsView: View {
                                 }
                                 .padding(9)
                                 .background(
-                                    Capsule().fill(Color.white)
+                                    Capsule().fill(Color.fundinho2)
                                 )
                             }
                             
@@ -135,11 +135,12 @@ struct ChartsView: View {
                     
                     
                 }.background(Color.fundinho)
+                
                     .toolbar {
                         ToolbarItem(placement: .principal) {
                             HStack {
                                 Text("Charts")
-                                    .font(.largeTitle)
+                                    .font(.title)
                                     .fontWeight(.bold)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 

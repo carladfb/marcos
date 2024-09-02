@@ -18,7 +18,7 @@ struct InThisDayView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     HStack {
                         Text("Today in the past")
-                            .font(.title3)  
+                            .font(.title3)
                             .padding(.bottom, 5)
                         
                         Spacer()
@@ -53,7 +53,7 @@ struct InThisDayView: View {
                     
                 }
                 .padding()
-                .background(Color.white)
+                .background(Color.fundinho2)
                 .cornerRadius(20)
             } else {
                 Text("No event available")

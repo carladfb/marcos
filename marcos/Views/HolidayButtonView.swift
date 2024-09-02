@@ -17,8 +17,8 @@ struct HolidayButtonView: View {
         }, label: {
             HStack {
                 Text(holiday.holidayStyle.emoji)
-                    .font(.caption)
-                    .padding(3)
+                    .font(.callout)
+                    .padding(6)
                     .background(
                         Circle()
                             .fill(Color.black)
@@ -26,7 +26,7 @@ struct HolidayButtonView: View {
                     )
                 Text(holiday.holiday.name)
                     .foregroundColor(.white)
-                    .font(.footnote)
+                    .font(.callout)
                     .lineLimit(1)
                 
                 Spacer()
@@ -34,9 +34,11 @@ struct HolidayButtonView: View {
                 Image(systemName: "chevron.right")
                     .foregroundColor(Color.black)
                     .opacity(0.4)
+                
             }
-            .padding(.vertical, 4)
-            .padding(.horizontal, 12)
+            .padding(.vertical, 5)
+            .padding(.leading, 5)
+            .padding(.trailing, 12)
             .frame(maxWidth: .infinity)
             .background(
                 Capsule()
@@ -44,10 +46,12 @@ struct HolidayButtonView: View {
             )
         })
         .sheet(isPresented: $showingSheet) {
+            
             HolidayDetailView(holiday: holiday)
                 .presentationDetents([.fraction(0.5)])
                 .presentationDragIndicator(.hidden)
                 .presentationCornerRadius(40)
+            
         }
     }
 }

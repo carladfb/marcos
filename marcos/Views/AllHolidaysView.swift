@@ -74,43 +74,7 @@ struct AllHolidaysView: View {
         
     }
     
-    struct HolidayCardView: View {
-        
-        let holiday: HolidayWithStyle;
-        
-        var body: some View {
-            
-            HStack(spacing: 12) {
-                
-                Text(holiday.holidayStyle.emoji)
-                    .padding(6)
-                    .font(.subheadline)
-                    .background(
-                        Circle()
-                            .fill(holiday.holidayStyle.cor)
-                    )
-                
-                
-                VStack (alignment: .leading, spacing: 2){
-                    Text(holiday.holiday.name)
-                        .font(.callout)
-                        .bold()
-                        .lineLimit(0)
-                    Text(String(holiday.holiday.date.datetime.month) + " / " + String(holiday.holiday.date.datetime.day))
-                        .font(.caption)
-                        .foregroundColor(.cinzinha)
-                }
-                
-                Spacer()
-                
-                Image(systemName: "chevron.right")
-                
-            }
-            
-        }
-        
-        
-    }
+
 }
 
 

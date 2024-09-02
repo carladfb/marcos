@@ -63,7 +63,18 @@ struct HolidayDetailView: View {
                 .font(.body)
                 .padding(.horizontal, 30)
             
+            Link(destination: URL(string: holiday.holiday.canonical_url)!) {
+                Text("Know more!")
+                    .font(.body)
+                    .bold()
+                    .foregroundColor(.vermeiTchan)
+                    .underline()
+            }
+            .padding(.horizontal, 30)
+            .padding(.top, 40)
+            
             Spacer()
+            
         }
         .padding(.top, 10)
         .presentationDetents([.fraction(0.5)])

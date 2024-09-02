@@ -14,7 +14,7 @@ struct DaysToViewRectangle: View {
     
     var body: some View {
         Text(date)
-            .font(.body)
+            .font(.headline)
             .padding(.vertical, CGFloat(space))
             .padding(.horizontal, 5)
             .frame(maxWidth: 120)

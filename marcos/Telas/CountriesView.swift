@@ -23,6 +23,7 @@ struct CountriesView: View {
     
     var body: some View {
         
+        
         VStack {
             
             Capsule()
@@ -35,14 +36,13 @@ struct CountriesView: View {
                     Text("Countries")
                         .font(.title)
                         .fontWeight(.medium)
-                        .foregroundColor(.black)
                         .multilineTextAlignment(.center)
                 }
                 .padding(.horizontal)
                 .padding(.top, 30)
                 .frame(maxWidth: .infinity)
                 .background(Color.white)
-
+                
             }
             .overlay(
                 Button(action: {
@@ -70,7 +70,7 @@ struct CountriesView: View {
                                 Text(String(count.flag_unicode))
                                     .font(.system(size: 100))
                                 Text(String(count.country_name))
-                                    .foregroundColor(.black)
+                                    .foregroundColor(Color.black)
                                     .lineLimit(0)
                                 
                                 Spacer()
@@ -80,7 +80,10 @@ struct CountriesView: View {
                 }
                 .padding()
             }
+            
         }
+        
+        
         
     }
 }

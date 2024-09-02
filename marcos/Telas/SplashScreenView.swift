@@ -41,7 +41,7 @@ struct SplashScreenView: View {
             .onAppear {
                 holidaysDAO.fetchDays(currentCountry: "BR")
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     withAnimation {
                         self.isActive = true
                     }

@@ -15,12 +15,12 @@ struct DaysToView: View {
     
     var body: some View {
         Text(date)
-            .font(.footnote)
+            .font(.callout)
             .padding(.vertical, CGFloat(space))
             .padding(.horizontal, 5)
             .frame(maxWidth: 120)
             .background(
-                Capsule()
+                RoundedRectangle(cornerRadius: 20.0)
                     .fill(Color.fundinho)
             )
     }
