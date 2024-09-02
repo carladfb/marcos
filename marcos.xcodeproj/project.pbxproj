@@ -33,6 +33,7 @@
 		7F9C9B5D2C824BD800E88A38 /* DashedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9C9B5C2C824BD800E88A38 /* DashedLine.swift */; };
 		7FED74672C862A5E0014DE9F /* HolidayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED74662C862A5E0014DE9F /* HolidayDetailView.swift */; };
 		7FED74692C863CBF0014DE9F /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED74682C863CBF0014DE9F /* TermsView.swift */; };
+		7FED746B2C86424F0014DE9F /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED746A2C86424F0014DE9F /* SplashScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		7F9C9B5C2C824BD800E88A38 /* DashedLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLine.swift; sourceTree = "<group>"; };
 		7FED74662C862A5E0014DE9F /* HolidayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayDetailView.swift; sourceTree = "<group>"; };
 		7FED74682C863CBF0014DE9F /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
+		7FED746A2C86424F0014DE9F /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				796ED1E22C7CFD750059EBA4 /* ChartsView.swift */,
 				796ED1E42C7CFD810059EBA4 /* CountriesView.swift */,
 				7FED74682C863CBF0014DE9F /* TermsView.swift */,
+				7FED746A2C86424F0014DE9F /* SplashScreenView.swift */,
 			);
 			path = Telas;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				7F9C9B5D2C824BD800E88A38 /* DashedLine.swift in Sources */,
 				797C00092C812CA500EFC77A /* DaysToView.swift in Sources */,
 				7F1490922C7CFA6200E4BD63 /* ContentView.swift in Sources */,
+				7FED746B2C86424F0014DE9F /* SplashScreenView.swift in Sources */,
 				7F1490902C7CFA6200E4BD63 /* marcosApp.swift in Sources */,
 				79F7C1452C86421B0074DFC6 /* AllHolidaysView.swift in Sources */,
 				7F2527762C7F9C0C00F352EA /* ButtonCountries.swift in Sources */,

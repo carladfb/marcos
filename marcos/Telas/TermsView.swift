@@ -39,7 +39,7 @@ struct TermsView: View {
                             
                             Text("5. Information Responsibility")
                                 .fontWeight(.bold)
-                                .foregroundColor(.red)
+                                .foregroundColor(.vermeiTchan)
                             Text("The Whats Next team is not responsible for the information disclosed. By using the app, the user is aware that verifying the information is their responsibility, and they should contact the providers of the following APIs directly: Calendarific and The Wikimedia Foundation, Inc.")
                         }
                         
@@ -56,7 +56,7 @@ struct TermsView: View {
                         }
                     }
                     .padding(.horizontal, 30)
-                    .padding(.vertical, 20)
+                    .padding(.top, -20)
                 }
                 .background(Color.fundinho)
                     .toolbar {
