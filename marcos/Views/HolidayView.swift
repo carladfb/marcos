@@ -9,19 +9,14 @@ import SwiftUI
 
 struct HolidayView: View {
     
-    let holiday: HolidayWithStyle?;
-    let space: Int;
+    let holiday: HolidayWithStyle?
+    let space: Int
     
-    
+    @State private var showingSheet = false
     
     var body: some View {
-        
         Button(action: {
-            if let holiday1 = holiday {
-                print(holiday1.holiday.description)
-                print(holiday1.holiday.canonical_url)
-            }
-            
+            showingSheet.toggle()
         }, label: {
             HStack {
                 Text(holiday?.holidayStyle.emoji ?? "😕")
@@ -35,16 +30,15 @@ struct HolidayView: View {
                 Text(holiday?.holiday.name ?? "Today is a normal day")
                     .foregroundColor(.white)
                     .font(.footnote)
-                    .lineLimit(0)
+                    .lineLimit(1)
                 
                 Spacer()
                 
-                if let _ = holiday{
+                if let _ = holiday {
                     Image(systemName: "chevron.right")
                         .foregroundColor(Color.black)
                         .opacity(0.4)
                 }
-                
             }
             .padding(.vertical, CGFloat(space))
             .padding(.leading, 6)
@@ -55,10 +49,13 @@ struct HolidayView: View {
                     .fill(holiday?.holidayStyle.cor ?? Color.cinzinhaClaro)
             )
         })
-        
+        .sheet(isPresented: $showingSheet) {
+            if let holiday = holiday {
+                HolidayDetailView(holiday: holiday)
+                    .presentationDetents([.fraction(0.5)]) 
+                    .presentationDragIndicator(.hidden)
+                    .presentationCornerRadius(40)
+            }
+        }
     }
-    
-    
 }
-
-

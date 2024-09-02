@@ -32,6 +32,12 @@ struct ContentView: View {
                     Text("Charts")
                 }
             }
+            TermsView().tabItem {
+                VStack {
+                    Image(systemName: "info.circle")
+                    Text("Information")
+                }
+            }
         }
         .accentColor(.vermeiTchan)
     }

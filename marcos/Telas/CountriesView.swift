@@ -39,12 +39,12 @@ struct CountriesView: View {
                         .multilineTextAlignment(.center)
                 }
                 .padding(.horizontal)
-                .padding(.top, 35)
+                .padding(.top, 30)
                 .frame(maxWidth: .infinity)
                 .background(Color.white)
-                
-                
-                
+
+            }
+            .overlay(
                 Button(action: {
                     dismiss()
                 }, label: {
@@ -52,8 +52,9 @@ struct CountriesView: View {
                         .imageScale(.large)
                         .foregroundColor(.red)
                 })
-                .padding(.trailing)
-            }
+                .padding(.trailing, 30),
+                alignment: .topTrailing
+            )
             
             SearchBar(text: $searchTerm, placeholder: "Search Country")
                 .padding(.horizontal)

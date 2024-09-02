@@ -29,8 +29,8 @@ struct HomeView: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     HStack {
-                        Text("Calendar")
-                            .font(.largeTitle)
+                        Text("What's Next?")
+                            .font(.title)
                             .fontWeight(.bold)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         

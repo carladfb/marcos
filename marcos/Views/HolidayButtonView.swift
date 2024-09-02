@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct HolidayButtonView: View {
-    let holiday: HolidayWithStyle;
-    
+    let holiday: HolidayWithStyle
+    @State private var showingSheet = false
     
     var body: some View {
-  
         Button(action: {
-            print(holiday.holiday.description)
-            print(holiday.holiday.canonical_url)
+            showingSheet.toggle()
         }, label: {
             HStack {
                 Text(holiday.holidayStyle.emoji)
@@ -29,7 +27,7 @@ struct HolidayButtonView: View {
                 Text(holiday.holiday.name)
                     .foregroundColor(.white)
                     .font(.footnote)
-                    .lineLimit(0)
+                    .lineLimit(1)
                 
                 Spacer()
                 
@@ -45,7 +43,11 @@ struct HolidayButtonView: View {
                     .fill(holiday.holidayStyle.cor)
             )
         })
-        
+        .sheet(isPresented: $showingSheet) {
+            HolidayDetailView(holiday: holiday)
+                .presentationDetents([.fraction(0.5)])
+                .presentationDragIndicator(.hidden)
+                .presentationCornerRadius(40)
+        }
     }
 }
-

@@ -30,6 +30,8 @@
 		7F2E86F92C7E75930041CCD4 /* TodayDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E86F82C7E75930041CCD4 /* TodayDate.swift */; };
 		7F9C9B5B2C82416A00E88A38 /* SheetHolidaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9C9B5A2C82416A00E88A38 /* SheetHolidaysView.swift */; };
 		7F9C9B5D2C824BD800E88A38 /* DashedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9C9B5C2C824BD800E88A38 /* DashedLine.swift */; };
+		7FED74672C862A5E0014DE9F /* HolidayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED74662C862A5E0014DE9F /* HolidayDetailView.swift */; };
+		7FED74692C863CBF0014DE9F /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED74682C863CBF0014DE9F /* TermsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		7F2E86F82C7E75930041CCD4 /* TodayDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayDate.swift; sourceTree = "<group>"; };
 		7F9C9B5A2C82416A00E88A38 /* SheetHolidaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetHolidaysView.swift; sourceTree = "<group>"; };
 		7F9C9B5C2C824BD800E88A38 /* DashedLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLine.swift; sourceTree = "<group>"; };
+		7FED74662C862A5E0014DE9F /* HolidayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayDetailView.swift; sourceTree = "<group>"; };
+		7FED74682C863CBF0014DE9F /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 				796ED1E02C7CFD690059EBA4 /* HomeView.swift */,
 				796ED1E22C7CFD750059EBA4 /* ChartsView.swift */,
 				796ED1E42C7CFD810059EBA4 /* CountriesView.swift */,
+				7FED74682C863CBF0014DE9F /* TermsView.swift */,
 			);
 			path = Telas;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 				7F9C9B5A2C82416A00E88A38 /* SheetHolidaysView.swift */,
 				7F9C9B5C2C824BD800E88A38 /* DashedLine.swift */,
 				790055D72C82567A00EB7686 /* DaysToViewRectangle.swift */,
+				7FED74662C862A5E0014DE9F /* HolidayDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 				796133D02C80FDC400844512 /* HolidayView.swift in Sources */,
 				7F2E86F92C7E75930041CCD4 /* TodayDate.swift in Sources */,
 				7F9C9B5B2C82416A00E88A38 /* SheetHolidaysView.swift in Sources */,
+				7FED74672C862A5E0014DE9F /* HolidayDetailView.swift in Sources */,
 				797C00072C81221400EFC77A /* HolidayButtonView.swift in Sources */,
 				7F9C9B5D2C824BD800E88A38 /* DashedLine.swift in Sources */,
 				797C00092C812CA500EFC77A /* DaysToView.swift in Sources */,
@@ -335,6 +342,7 @@
 				7F1490902C7CFA6200E4BD63 /* marcosApp.swift in Sources */,
 				7F2527762C7F9C0C00F352EA /* ButtonCountries.swift in Sources */,
 				796ED1E32C7CFD750059EBA4 /* ChartsView.swift in Sources */,
+				7FED74692C863CBF0014DE9F /* TermsView.swift in Sources */,
 				796133D22C81059500844512 /* SearchBar.swift in Sources */,
 				7F2E86F52C7E6B400041CCD4 /* InThisDayViewModel.swift in Sources */,
 				792BA3AE2C7F97650050D3D3 /* ChartHolidaysPerMonthView.swift in Sources */,

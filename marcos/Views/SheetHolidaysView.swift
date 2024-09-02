@@ -25,7 +25,7 @@ struct SheetHolidaysView: View {
                         Button(action: {
                             withAnimation(.bouncy(duration: 0.5)) {
                                 rotation += 360
-                                holidaysDAO.fetchDays(currentCountry: holidaysDAO.actualCountry?.iso3166 ?? "BR") // Recarregar feriados
+                                holidaysDAO.fetchDays(currentCountry: holidaysDAO.actualCountry?.iso3166 ?? "BR") 
                             }
                         }, label: {
                             Image(systemName: "arrow.clockwise")
