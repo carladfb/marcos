@@ -45,13 +45,14 @@ class HolidaysDAO: ObservableObject {
     
     init() {
         
-        let currentCountry = "BR"
+        let currentCountry = Locale.current.regionCode ?? "BR"
+        print(currentCountry)
         fetchDays(currentCountry: currentCountry)
     }
     
     func fetchDays(currentCountry: String) {
         
-        guard let url = URL(string: "https://calendarific.com/api/v2/countries?&api_key=J4E4kyWV5uFvXFYar4aA22FaFtcrGhbe") else {
+        guard let url = URL(string: "https://calendarific.com/api/v2/countries?&api_key=zald2kf6haIs6f4mkHFybvxTY7LfuDfk") else {
             print("url invalida");
             return;
         }
@@ -100,7 +101,7 @@ class HolidaysDAO: ObservableObject {
         ]
         
         
-        guard let url = URL(string: "https://calendarific.com/api/v2/holidays?&api_key=J4E4kyWV5uFvXFYar4aA22FaFtcrGhbe&country=\(country)&year=\(dateString)") else {
+        guard let url = URL(string: "https://calendarific.com/api/v2/holidays?&api_key=zald2kf6haIs6f4mkHFybvxTY7LfuDfk&country=\(country)&year=\(dateString)") else {
             print("url invalida");
             return;
         }
@@ -171,11 +172,7 @@ class HolidaysDAO: ObservableObject {
                     self.progressYear = CGFloat(Float(self.pastDays) / Float(self.daysInThisYear))
                     self.progressHolidays = CGFloat(Float(self.pastHolidays.count) / Float(self.holidayWithStyle.count))
                     self.isLoading = false;
-                    
-                    
-                    for i in self.recentsHolidays {
-                        print(i!)
-                    }
+
                 }
             } catch {
                 print(error)

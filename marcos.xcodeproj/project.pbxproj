@@ -17,6 +17,7 @@
 		796ED1E52C7CFD810059EBA4 /* CountriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ED1E42C7CFD810059EBA4 /* CountriesView.swift */; };
 		797C00072C81221400EFC77A /* HolidayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797C00062C81221400EFC77A /* HolidayButtonView.swift */; };
 		797C00092C812CA500EFC77A /* DaysToView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797C00082C812CA500EFC77A /* DaysToView.swift */; };
+		79F7C1452C86421B0074DFC6 /* AllHolidaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F7C1442C86421B0074DFC6 /* AllHolidaysView.swift */; };
 		7F1490902C7CFA6200E4BD63 /* marcosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14908F2C7CFA6200E4BD63 /* marcosApp.swift */; };
 		7F1490922C7CFA6200E4BD63 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1490912C7CFA6200E4BD63 /* ContentView.swift */; };
 		7F1490942C7CFA6300E4BD63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F1490932C7CFA6300E4BD63 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		796ED1E42C7CFD810059EBA4 /* CountriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesView.swift; sourceTree = "<group>"; };
 		797C00062C81221400EFC77A /* HolidayButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayButtonView.swift; sourceTree = "<group>"; };
 		797C00082C812CA500EFC77A /* DaysToView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysToView.swift; sourceTree = "<group>"; };
+		79F7C1442C86421B0074DFC6 /* AllHolidaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllHolidaysView.swift; sourceTree = "<group>"; };
 		7F14908C2C7CFA6200E4BD63 /* marcos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marcos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F14908F2C7CFA6200E4BD63 /* marcosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = marcosApp.swift; sourceTree = "<group>"; };
 		7F1490912C7CFA6200E4BD63 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				7F9C9B5C2C824BD800E88A38 /* DashedLine.swift */,
 				790055D72C82567A00EB7686 /* DaysToViewRectangle.swift */,
 				7FED74662C862A5E0014DE9F /* HolidayDetailView.swift */,
+				79F7C1442C86421B0074DFC6 /* AllHolidaysView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				797C00092C812CA500EFC77A /* DaysToView.swift in Sources */,
 				7F1490922C7CFA6200E4BD63 /* ContentView.swift in Sources */,
 				7F1490902C7CFA6200E4BD63 /* marcosApp.swift in Sources */,
+				79F7C1452C86421B0074DFC6 /* AllHolidaysView.swift in Sources */,
 				7F2527762C7F9C0C00F352EA /* ButtonCountries.swift in Sources */,
 				796ED1E32C7CFD750059EBA4 /* ChartsView.swift in Sources */,
 				7FED74692C863CBF0014DE9F /* TermsView.swift in Sources */,

@@ -29,18 +29,18 @@ struct ChartsView: View {
                 ScrollView {
                     
                     
-                    VStack (spacing: 7){
+                    VStack (alignment: .leading, spacing: 7){
                         
-                        HStack {
-                            Text("Next Special Day")
-                            Spacer()
-                        }
+                        
+                        Text("Next Special Day")
+                        
                         
                         if let holiday = holidaysDAO.recentsHolidays[0] {
                             HStack {
                                 
                                 DaysToViewRectangle(date:
-                                                        String(holiday.holiday.date.datetime.month) + " / " + String(holiday.holiday.date.datetime.day),
+                                                        holidaysDAO.holidaysPerMonth[holiday.holiday.date.datetime.month - 1].monthName
+                                                         + " / " + String(holiday.holiday.date.datetime.day),
                                                     space: 8
                                 )
                                 
@@ -55,18 +55,21 @@ struct ChartsView: View {
                             Text("No Special Day in this year")
                         }
                         
-                        HStack {
-                            Text("This Month")
-                            Spacer()
-                        }
-                        .padding(.top, 16)
+                        
+                        Text("This Month")
+                        
+                        
+                        
+                        
+                        
+                            .padding(.top, 16)
                         
                         ForEach(1..<4) { i in
                             
                             if let holiday = holidaysDAO.recentsHolidays[i] {
                                 HStack {
                                     DaysToView(date:
-                                                String(holiday.holiday.date.datetime.month) + " / " + String(holiday.holiday.date.datetime.day),
+                                                holidaysDAO.holidaysPerMonth[holiday.holiday.date.datetime.month - 1].monthName + " / " + String(holiday.holiday.date.datetime.day),
                                                space: 6
                                     )
                                     HolidayButtonView(holiday: holiday)
@@ -82,37 +85,46 @@ struct ChartsView: View {
                         HStack {
                             Text("Past special days")
                             Spacer()
+                            NavigationLink {
+                                AllHolidaysView(holidaysDAO: holidaysDAO)
+                            } label: {
+                                Text("View all")
+                                    .bold()
+                            }
+
                         }
-                        .padding(.top, 16)
+                        
+
+                        
+                        
+                            .padding(.top, 16)
                         
                         CustomProgressView(progress: holidaysDAO.progressHolidays, lineHeight: 20, holidaysDAO: holidaysDAO,
                                            final: holidaysDAO.holidayWithStyle.count, numberProgress: holidaysDAO.holidayWithStyle.count - holidaysDAO.recentsHolidays.count)
                         .padding(.horizontal)
                         
                         
-                        HStack {
-                            Text("Special Day per Month")
-                            Spacer()
-                        }
-                        .padding(.top, 32)
+                        
+                        Text("Special Day per Month")
+                        
+                            .padding(.top, 32)
                         
                         ChartHolidaysPerMonthView(holidays: holidaysDAO.holidaysPerMonth, month: dateFormatter.string(from: Foundation.Date()))
                         
                         
                         
                         
-                        HStack {
-                            Text("This Year ends in")
-                            Spacer()
-                        }
-                        .padding(.top, 16)
+                        
+                        Text("This Year ends in")
+                        
+                            .padding(.top, 16)
                         
                         CustomProgressView(progress: holidaysDAO.progressYear, lineHeight: 20, holidaysDAO: holidaysDAO,
                                            final: holidaysDAO.daysInThisYear, numberProgress: holidaysDAO.pastDays)
                         .padding(.horizontal)
                         .padding(.bottom, 32)
                         
-
+                        
                         
                         
                         
