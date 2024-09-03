@@ -52,7 +52,7 @@ class HolidaysDAO: ObservableObject {
     
     func fetchDays(currentCountry: String) {
         
-        guard let url = URL(string: "https://calendarific.com/api/v2/countries?&api_key=yn4nZZfXtegFCrbxKxyLGIFZ6NzCyq4O") else {
+        guard let url = URL(string: "https://calendarific.com/api/v2/countries?&api_key=Fgt01CyUk7NpSs3KYTUhpkOVWc9MxrY8") else {
             print("url invalida");
             return;
         }
@@ -101,7 +101,7 @@ class HolidaysDAO: ObservableObject {
         ]
         
         
-        guard let url = URL(string: "https://calendarific.com/api/v2/holidays?&api_key=yn4nZZfXtegFCrbxKxyLGIFZ6NzCyq4O&country=\(country)&year=\(dateString)") else {
+        guard let url = URL(string: "https://calendarific.com/api/v2/holidays?&api_key=Fgt01CyUk7NpSs3KYTUhpkOVWc9MxrY8&country=\(country)&year=\(dateString)") else {
             print("url invalida");
             return;
         }

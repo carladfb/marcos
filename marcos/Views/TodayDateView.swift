@@ -1,7 +1,3 @@
-// todayDate.swift
-
-// Created by CARLA DHEYSLANE FERREIRA BRITO on 27/08/24.
-
 import SwiftUI
 
 struct TodayDateView: View {
