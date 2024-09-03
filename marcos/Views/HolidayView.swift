@@ -41,7 +41,7 @@ struct HolidayView: View {
             .frame(maxWidth: .infinity)
             .background(
                 Capsule()
-                    .fill(holiday?.holidayStyle.cor ?? Color.capsulaDeFora)
+                    .fill(holiday?.holidayStyle.cor ?? Color.capsulaNãoEspecial)
             )
         })
         .sheet(isPresented: $showingSheet) {
