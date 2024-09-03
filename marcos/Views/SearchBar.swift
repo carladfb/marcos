@@ -1,10 +1,3 @@
-//
-//  SearchBar.swift
-//  marcos
-//
-//  Created by CARLA DHEYSLANE FERREIRA BRITO on 29/08/24.
-//
-
 import SwiftUI
 import UIKit
 

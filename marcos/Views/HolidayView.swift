@@ -1,10 +1,3 @@
-//
-//  HolidayView.swift
-//  marcos
-//
-//  Created by GUILHERME MATEUS SOUSA SANTOS on 29/08/24.
-//
-
 import SwiftUI
 
 struct HolidayView: View {

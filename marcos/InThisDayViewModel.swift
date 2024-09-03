@@ -1,10 +1,3 @@
-//
-//  InThisDayViewModel.swift
-//  marcos
-//
-//  Created by CARLA DHEYSLANE FERREIRA BRITO on 27/08/24.
-//
-
 import Foundation
 import Combine
 

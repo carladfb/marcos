@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  marcos
-//
-//  Created by CARLA DHEYSLANE FERREIRA BRITO on 26/08/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {

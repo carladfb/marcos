@@ -1,10 +1,3 @@
-//
-//  TermsView.swift
-//  marcos
-//
-//  Created by CARLA DHEYSLANE FERREIRA BRITO on 02/09/24.
-//
-
 import SwiftUI
 
 struct TermsView: View {

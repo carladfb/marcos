@@ -1,10 +1,3 @@
-//
-//  DaysToViewRectangle.swift
-//  marcos
-//
-//  Created by GUILHERME MATEUS SOUSA SANTOS on 30/08/24.
-//
-
 import SwiftUI
 
 struct DaysToViewRectangle: View {

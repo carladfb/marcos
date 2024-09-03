@@ -1,10 +1,3 @@
-//
-//  ButtonCountries.swift
-//  marcos
-//
-//  Created by CARLA DHEYSLANE FERREIRA BRITO on 28/08/24.
-//
-
 import SwiftUI
 
 struct ButtonCountries: View {

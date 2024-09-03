@@ -1,10 +1,3 @@
-//
-//  ChartHolidaysPerMonthView.swift
-//  marcos
-//
-//  Created by GUILHERME MATEUS SOUSA SANTOS on 28/08/24.
-//
-
 import SwiftUI
 import Charts
 

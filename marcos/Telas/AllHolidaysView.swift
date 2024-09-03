@@ -1,10 +1,3 @@
-//
-//  AllHolidaysView.swift
-//  marcos
-//
-//  Created by GUILHERME MATEUS SOUSA SANTOS on 02/09/24.
-//
-
 import SwiftUI
 
 struct AllHolidaysView: View {

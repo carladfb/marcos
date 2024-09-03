@@ -1,10 +1,3 @@
-//
-//  SheetHolidaysView.swift
-//  marcos
-//
-//  Created by CARLA DHEYSLANE FERREIRA BRITO on 30/08/24.
-//
-
 import SwiftUI
 
 struct SheetHolidaysView: View {
