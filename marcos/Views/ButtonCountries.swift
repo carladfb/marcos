@@ -20,7 +20,7 @@ struct ButtonCountries: View {
                     .frame(width: 26, height: 20)
                     .font(.title)
                 Text(holidaysDAO.actualCountry?.iso3166 ?? "BR")
-                    .foregroundColor(.black)
+                    .foregroundColor(Color.primary)
                     .font(.title3)
                     .bold()
                 Image(systemName: "chevron.down")
@@ -28,7 +28,7 @@ struct ButtonCountries: View {
             }
             .padding(.vertical, 6)
             .padding(.horizontal, 15)
-            .background(Color.white)
+            .background(Color.tabBarEQuadrados)
             .cornerRadius(10)
         }
         .sheet(isPresented: $isSheetPresented) {

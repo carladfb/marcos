@@ -49,7 +49,7 @@ struct ChartsView: View {
                             }
                             .padding(9)
                             .background(
-                                RoundedRectangle(cornerRadius: 20).fill(Color.fundinho2)
+                                RoundedRectangle(cornerRadius: 20).fill(Color.capsulaDeFora)
                             )
                         } else {
                             Text("No Special Day in this year")
@@ -76,7 +76,7 @@ struct ChartsView: View {
                                 }
                                 .padding(9)
                                 .background(
-                                    Capsule().fill(Color.fundinho2)
+                                    Capsule().fill(Color.capsulaDeFora)
                                 )
                             }
                             

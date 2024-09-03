@@ -28,7 +28,7 @@
 		7F2527762C7F9C0C00F352EA /* ButtonCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2527752C7F9C0C00F352EA /* ButtonCountries.swift */; };
 		7F2E86F52C7E6B400041CCD4 /* InThisDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E86F42C7E6B400041CCD4 /* InThisDayViewModel.swift */; };
 		7F2E86F72C7E6CBC0041CCD4 /* InThisDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E86F62C7E6CBC0041CCD4 /* InThisDayView.swift */; };
-		7F2E86F92C7E75930041CCD4 /* TodayDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E86F82C7E75930041CCD4 /* TodayDate.swift */; };
+		7F2E86F92C7E75930041CCD4 /* TodayDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E86F82C7E75930041CCD4 /* TodayDateView.swift */; };
 		7F9C9B5B2C82416A00E88A38 /* SheetHolidaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9C9B5A2C82416A00E88A38 /* SheetHolidaysView.swift */; };
 		7F9C9B5D2C824BD800E88A38 /* DashedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9C9B5C2C824BD800E88A38 /* DashedLine.swift */; };
 		7FED74672C862A5E0014DE9F /* HolidayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED74662C862A5E0014DE9F /* HolidayDetailView.swift */; };
@@ -79,7 +79,7 @@
 		7F2527752C7F9C0C00F352EA /* ButtonCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCountries.swift; sourceTree = "<group>"; };
 		7F2E86F42C7E6B400041CCD4 /* InThisDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InThisDayViewModel.swift; sourceTree = "<group>"; };
 		7F2E86F62C7E6CBC0041CCD4 /* InThisDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InThisDayView.swift; sourceTree = "<group>"; };
-		7F2E86F82C7E75930041CCD4 /* TodayDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayDate.swift; sourceTree = "<group>"; };
+		7F2E86F82C7E75930041CCD4 /* TodayDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayDateView.swift; sourceTree = "<group>"; };
 		7F9C9B5A2C82416A00E88A38 /* SheetHolidaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetHolidaysView.swift; sourceTree = "<group>"; };
 		7F9C9B5C2C824BD800E88A38 /* DashedLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLine.swift; sourceTree = "<group>"; };
 		7FED74662C862A5E0014DE9F /* HolidayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayDetailView.swift; sourceTree = "<group>"; };
@@ -115,6 +115,7 @@
 		796ED1DF2C7CFD560059EBA4 /* Telas */ = {
 			isa = PBXGroup;
 			children = (
+				79F7C1442C86421B0074DFC6 /* AllHolidaysView.swift */,
 				796ED1E02C7CFD690059EBA4 /* HomeView.swift */,
 				796ED1E22C7CFD750059EBA4 /* ChartsView.swift */,
 				796ED1E42C7CFD810059EBA4 /* CountriesView.swift */,
@@ -127,6 +128,7 @@
 		797C00052C81218400EFC77A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7F2E86F82C7E75930041CCD4 /* TodayDateView.swift */,
 				792BA3AD2C7F97650050D3D3 /* ChartHolidaysPerMonthView.swift */,
 				7F1490912C7CFA6200E4BD63 /* ContentView.swift */,
 				7F2E86F62C7E6CBC0041CCD4 /* InThisDayView.swift */,
@@ -139,7 +141,6 @@
 				7F9C9B5C2C824BD800E88A38 /* DashedLine.swift */,
 				790055D72C82567A00EB7686 /* DaysToViewRectangle.swift */,
 				7FED74662C862A5E0014DE9F /* HolidayDetailView.swift */,
-				79F7C1442C86421B0074DFC6 /* AllHolidaysView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,7 +176,6 @@
 				7F1490962C7CFA6300E4BD63 /* Preview Content */,
 				791DE4912C7E47E0000D8BB9 /* HolidaysDAO.swift */,
 				7F2E86F42C7E6B400041CCD4 /* InThisDayViewModel.swift */,
-				7F2E86F82C7E75930041CCD4 /* TodayDate.swift */,
 			);
 			path = marcos;
 			sourceTree = "<group>";
@@ -338,7 +338,7 @@
 			files = (
 				796ED1E12C7CFD690059EBA4 /* HomeView.swift in Sources */,
 				796133D02C80FDC400844512 /* HolidayView.swift in Sources */,
-				7F2E86F92C7E75930041CCD4 /* TodayDate.swift in Sources */,
+				7F2E86F92C7E75930041CCD4 /* TodayDateView.swift in Sources */,
 				7F9C9B5B2C82416A00E88A38 /* SheetHolidaysView.swift in Sources */,
 				7FED74672C862A5E0014DE9F /* HolidayDetailView.swift in Sources */,
 				797C00072C81221400EFC77A /* HolidayButtonView.swift in Sources */,
@@ -527,10 +527,11 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -541,10 +542,11 @@
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = marcos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -567,10 +569,11 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -581,10 +584,11 @@
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = marcos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

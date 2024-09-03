@@ -41,7 +41,6 @@ struct CountriesView: View {
                 .padding(.horizontal)
                 .padding(.top, 30)
                 .frame(maxWidth: .infinity)
-                .background(Color.white)
                 
             }
             .overlay(
@@ -50,7 +49,7 @@ struct CountriesView: View {
                 }, label: {
                     Image(systemName: "xmark")
                         .imageScale(.large)
-                        .foregroundColor(.red)
+                        .foregroundColor(.vermeiTchan)
                 })
                 .padding(.trailing, 30),
                 alignment: .topTrailing
@@ -70,7 +69,7 @@ struct CountriesView: View {
                                 Text(String(count.flag_unicode))
                                     .font(.system(size: 100))
                                 Text(String(count.country_name))
-                                    .foregroundColor(Color.black)
+                                    .foregroundColor(Color.primary)
                                     .lineLimit(0)
                                 
                                 Spacer()

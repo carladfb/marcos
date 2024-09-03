@@ -44,7 +44,7 @@ struct HolidayDetailView: View {
                 }, label: {
                     Image(systemName: "xmark")
                         .imageScale(.large)
-                        .foregroundColor(.red)
+                        .foregroundColor(.vermeiTchan)
                 })
                 .padding(.trailing, 30),
                 alignment: .topTrailing
@@ -59,12 +59,16 @@ struct HolidayDetailView: View {
                 .padding(.vertical, 5)
                 .padding(.horizontal, 30)
             
-            Text(holiday.holiday.description)
-                .font(.body)
-                .padding(.horizontal, 30)
+            ScrollView{
+                Text(holiday.holiday.description)
+                    .font(.body)
+                    .padding(.horizontal, 30)
+                
+            }
+            
             
             Link(destination: URL(string: holiday.holiday.canonical_url)!) {
-                Text("Know more!")
+                Text("More info!")
                     .font(.body)
                     .bold()
                     .foregroundColor(.vermeiTchan)
@@ -72,11 +76,11 @@ struct HolidayDetailView: View {
             }
             .padding(.horizontal, 30)
             .padding(.top, 40)
-            
+    
             Spacer()
-            
         }
         .padding(.top, 10)
-        .presentationDetents([.fraction(0.5)])
+                .presentationDragIndicator(.visible)
+                .presentationDetents([.medium, .large])
     }
 }

@@ -53,7 +53,7 @@ struct InThisDayView: View {
                     
                 }
                 .padding()
-                .background(Color.fundinho2)
+                .background(Color.tabBarEQuadrados)
                 .cornerRadius(20)
             } else {
                 Text("No event available")

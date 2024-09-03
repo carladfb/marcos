@@ -13,7 +13,7 @@ struct ContentView: View {
     
     init() {
             let appearance = UITabBarAppearance()
-            appearance.backgroundColor = .white
+            appearance.backgroundColor = .tabBarEQuadrados
             UITabBar.appearance().standardAppearance = appearance
             UITabBar.appearance().scrollEdgeAppearance = appearance
         }

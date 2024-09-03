@@ -18,7 +18,7 @@ struct AllHolidaysView: View {
             ScrollView {
                 
                 VStack {
-                    Text("Past holidays")
+                    Text("Past Special Days")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(.title3)
                         .padding(.horizontal, 6)
@@ -35,13 +35,13 @@ struct AllHolidaysView: View {
                             }
                             .padding(9)
                             .background(
-                                Capsule().fill(Color.white)
+                                Capsule().fill(Color.capsulaDeFora)
                             )
                         }
                     }
                     
                     
-                    Text("Future holidays")
+                    Text("Future Special Days")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(.title3)
                         .bold()
@@ -58,7 +58,7 @@ struct AllHolidaysView: View {
                             }
                             .padding(9)
                             .background(
-                                Capsule().fill(Color.white)
+                                Capsule().fill(Color.capsulaDeFora)
                             )
                         }
                     }
@@ -69,7 +69,7 @@ struct AllHolidaysView: View {
             }
             
         }
-        .navigationTitle("All holidays")
+        .navigationTitle("All Special Days")
         .background(Color.fundinho)
         
     }

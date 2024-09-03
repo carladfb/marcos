@@ -28,7 +28,7 @@ struct ChartHolidaysPerMonthView: View {
                         .font(.caption)
                         .foregroundColor(month.prefix(3) == dado.monthName ?
                                          Color.vermei :
-                                           Color.pretin)
+                                           Color.primary)
                 })
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 
