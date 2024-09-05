@@ -43,6 +43,10 @@ Observação: cada TIPO de feriado é representado por uma cor e emoji diferente
 - URLSession
 - Pitada de UIKit
 
+# APIs utilizadas
+- https://calendarific.com/
+- https://api.wikimedia.org/wiki/Feed_API/Reference/On_this_day
+
 # Como executar o app
 
 - O aplicativo está disponível no Test Flight, acessando o link: https://testflight.apple.com/join/hmtMe1da
