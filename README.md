@@ -64,3 +64,8 @@ git clone https://github.com/carladfb/marcos
 - [Guilherme Mateus Sousa Santos](https://github.com/Domiuau)
 - [Carla Dheyslane Ferreira Brito](https://github.com/carladfb) 
 - [Noá Santana Miglio](https://github.com/Noivtroivsky)
+
+# Designer
+
+- [Cíntia Lopes Serápicos](https://www.behance.net/cintiaserapicos1)
+
