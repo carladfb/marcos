@@ -7,7 +7,7 @@
 
 # Resumo do aplicativo
 
-- #### A tela inicial do aplicativo exibe a data atual, se hoje é um dia especial ou não, e um evento aleatório que aconteceu no determinado dia do mês.
+- #### Na tela inicial do aplicativo, é exibida a data atual, se hoje é um dia especial ou não, e um evento aleatório que aconteceu no passado no determinado dia do mês.
 
     * foto tela inicial*
     ![Andando](https://github.com/Npczz2/Joginho-c1/blob/main/Assets/andando.gif) 
