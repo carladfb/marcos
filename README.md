@@ -27,7 +27,7 @@
 
    * foto da sheet com as informacoes *
 
-- Observação: cada TIPO de feriado é representado por uma cor e emoji diferente.
+Observação: cada TIPO de feriado é representado por uma cor e emoji diferente.
 
 
 - #### Por padrão, o aplicativo exibi o país atual em que o usuário está localizado, porém é possível escolher outros países
