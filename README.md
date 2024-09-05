@@ -1,6 +1,7 @@
 # Sobre o projeto
 
-- Segundo Challange Apple Developer Academy | Senac turma 2024 - 2025 e primeiro aplicativo IOS funcional em SwiftUI.
+- Segundo Challange Apple Developer Academy | Senac turma 2024 - 2025
+- Primeiro aplicativo IOS funcional em SwiftUI
 - Aplicativo que consome dados externos, organiza e exibe de forma dinâmica.
 - What's Next? é um aplicativo mobile que informa o usuário sobre as datas especiais com base em seu país e data atual.
 
