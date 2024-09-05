@@ -10,8 +10,7 @@
 - #### Na tela inicial do aplicativo, é exibida a data atual, se hoje é um dia especial ou não, e um evento aleatório que aconteceu no passado no determinado dia do mês.
 
     * foto tela inicial*
-    ![Andando](https://github.com/carladfb/marcos/blob/main/Assets/telainicial.png)
-
+    ![Andando](https://github.com/carladfb/marcos/blob/main/Assets/telaInicial.png)
 - #### Na tela seguinte, informações adicionais são exibidas de forma dinâmica, como:
 
    - O proximo feriado
