@@ -9,7 +9,7 @@
 - #### A tela inicial do aplicativo exibe a data atual, se hoje é um dia especial ou não, e um evento aleatório que aconteceu no determinado dia do mês.
 
     * foto tela inicial*
-    ![Andando](https://github.com/Npczz2/Joguinho-c1/blob/main/Assets/andando.gif) 
+    ![Andando](https://github.com/Npczz2/Joginho-c1/blob/main/Assets/andando.gif) 
 
 - #### Na tela seguinte, informações adicionais são exibidas de forma dinâmica, como:
 
@@ -28,13 +28,11 @@
 
 - Observação: cada TIPO de feriado é representado por uma cor e emoji diferente.
 
-    ![Inventario](https://github.com/Npczz2/Joguinho-c1/blob/main/Assets/inventario.gif)
 
 - #### Por padrão, o aplicativo exibi o país atual em que o usuário está localizado, porém é possível escolher outros países
 
    * foto da tela selecao de paises *
 
-    ![Quebando coisas](https://github.com/Npczz2/Joguinho-c1/blob/main/Assets/passandodefase.gif) 
 
 
 # Tecnologias utilizadas
