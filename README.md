@@ -14,12 +14,12 @@
 
 - #### Na tela seguinte, informações adicionais são exibidas de forma dinâmica, como:
 
-- O proximo feriado
-- Os futuros feriados mais próximos
-- Quantos feriados tem no ano e quantos ja passaram
-- Todos os feriados do país com suas respectivas datas, quais estão por vir e quais já passaram
-- Quantos feriados tem em cada mês
-- Quantos dias do ano já passaram
+   - O proximo feriado
+   - Os futuros feriados mais próximos
+   - Quantos feriados tem no ano e quantos ja passaram
+   - Todos os feriados do país com suas respectivas datas, quais estão por vir e quais já passaram
+   - Quantos feriados tem em cada mês
+   - Quantos dias do ano já passaram
  
       * foto tela inicial *
 
