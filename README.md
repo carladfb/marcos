@@ -47,6 +47,7 @@ Observação: cada TIPO de feriado é representado por uma cor e emoji diferente
 - Swift Charts
 - URLSession
 - Pitada de UIKit
+- TestFlight
 
 # APIs utilizadas
 - https://calendarific.com/
