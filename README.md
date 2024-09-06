@@ -56,7 +56,7 @@ Observação: cada TIPO de feriado é representado por uma cor e emoji diferente
 
 - O aplicativo está disponível no Test Flight, acessando o link: https://testflight.apple.com/join/hmtMe1da
 
-*qr code
+<img width="40%" src="https://github.com/carladfb/marcos/blob/main/Assets/qrcode.jpeg"/>
   
 # Requisitos
 
