@@ -69,7 +69,7 @@ Observação: cada TIPO de feriado é representado por uma cor e emoji diferente
 git clone https://github.com/carladfb/marcos
 ```
 
-# Autor
+# Desenvolvedores
 
 - [Guilherme Mateus Sousa Santos](https://github.com/Domiuau)
 - [Carla Dheyslane Ferreira Brito](https://github.com/carladfb) 
